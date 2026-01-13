@@ -1,298 +1,334 @@
-# Deployment Guide
+# Cloudflare Pages Deployment Guide
 
-## Cloudflare Pages Deployment
+## 🚀 Quick Deploy
 
-This website is configured for deployment on Cloudflare Pages, a fast and secure static site hosting platform with global CDN.
-
-### Prerequisites
-
-1. **Cloudflare Account**: Sign up at [https://dash.cloudflare.com/sign-up](https://dash.cloudflare.com/sign-up)
-2. **Wrangler CLI**: Install globally or use the local version
-   ```bash
-   npm install -g wrangler
-   # OR use the project's local version via npm scripts
-   ```
-
-3. **Node.js (v20+)**: Cloudflare Wrangler requires Node.js v20 or newer. If your system uses an older Node version (for example, v18), upgrade using a version manager.
-
-   Windows (nvm-windows):
-   ```powershell
-   # Install nvm-windows from https://github.com/coreybutler/nvm-windows/releases
-   nvm install 20.18.1
-   nvm use 20.18.1
-   node -v
-   ```
-
-   Cross-platform (Volta):
-   ```bash
-   curl https://get.volta.sh | bash
-   volta install node@20.18.1
-   volta pin node@20.18.1
-   node -v
-   ```
-
-   Alternatively, download the official Node.js installer for v20 from https://nodejs.org/en/download/.
-
-### Initial Setup
-
-1. **Login to Cloudflare**:
-   ```bash
-   npx wrangler login
-   ```
-   This will open a browser window for authentication.
-
-2. **Verify Configuration**:
-   Check `wrangler.toml` for project settings:
-   - Project name: `ddmtechnology`
-   - Build output: `dist`
-   - Build command: `npm run build`
-
-### Deployment Methods
-
-#### Method 1: Automatic Deployment (Recommended)
-
-**Via GitHub Integration** (Recommended for Production):
-
-1. Push your code to GitHub:
-   ```bash
-   git push origin main
-   ```
-
-2. Go to [Cloudflare Dashboard](https://dash.cloudflare.com/) → Pages
-3. Click "Create a project" → "Connect to Git"
-4. Select your repository
-5. Configure build settings:
-   - **Build command**: `npm run build`
-   - **Build output directory**: `dist`
-   - **Root directory**: `/` (leave empty)
-   - **Environment variables**: None required initially
-
-6. Click "Save and Deploy"
-
-Cloudflare will automatically deploy on every push to your main branch.
-
-#### Method 2: Manual Deployment via CLI
-
-**Important:** Do not run `npx wrangler deploy` — that runs Workers-specific deploy and will fail for Pages projects. Use the Pages-specific command below.
-
-**Quick Deploy**:
 ```bash
+npm install
+npm run build
 npm run deploy
 ```
 
-**Or step-by-step**:
-```bash
-# 1. Build the project
-npm run build
+## Prerequisites
 
-# 2. Deploy to Cloudflare Pages (Pages CLI)
-npx wrangler pages deploy dist
-```
+1. **Node.js 20+** - Required by Cloudflare Wrangler
+   ```bash
+   node -v  # Should show v20.0.0 or higher
+   ```
 
-**Deploy to specific project**:
-```bash
-npm run pages:deploy
-```
+2. **Cloudflare Account** - Sign up at [dash.cloudflare.com](https://dash.cloudflare.com/sign-up)
 
-**Notes on `wrangler deploy` vs `wrangler pages deploy`**
+3. **Wrangler CLI** - Already installed in devDependencies
+   ```bash
+   npx wrangler login
+   ```
 
-- If you prefer to use `wrangler deploy` (Workers-style), provide the built assets with the `--assets` flag:
+## 📋 Deployment Steps
 
-```bash
-# Deploy assets explicitly (Workers CLI)
-npx wrangler deploy --assets=./dist
-```
+### Method 1: GitHub Integration (Recommended)
 
-- Or include an `[assets]` section in your `wrangler.toml`:
+1. **Connect Repository to Cloudflare Pages**
+   - Go to [Cloudflare Dashboard](https://dash.cloudflare.com/) → Pages
+   - Click "Create a project" → "Connect to Git"
+   - Select your repository: `DDMTechnology`
 
-```toml
-[assets]
-directory = "./dist"
-```
+2. **Configure Build Settings**
+   ```
+   Build command: npm run build
+   Build output directory: dist
+   Root directory: /
+   Environment variables: (none required initially)
+   Node version: 20
+   ```
 
-However, for Cloudflare Pages projects the recommended command remains:
+3. **Deploy**
+   - Click "Save and Deploy"
+   - Every push to `main` will auto-deploy
+   - Pull requests get preview URLs automatically
 
-```bash
-npx wrangler pages deploy dist
-```
+### Method 2: CLI Deployment
 
-#### Method 3: Direct Upload
+1. **Authenticate with Cloudflare**
+   ```bash
+   npx wrangler login
+   ```
 
-1. Build the project locally:
+2. **Build the Project**
    ```bash
    npm run build
    ```
 
-2. Go to [Cloudflare Dashboard](https://dash.cloudflare.com/) → Pages
-3. Click "Upload assets"
-4. Drag and drop the `dist` folder or select files
-
-### Environment-Specific Deployments
-
-#### Production
-```bash
-npx wrangler pages deploy dist --branch=main
-```
-
-#### Staging/Preview
-```bash
-npx wrangler pages deploy dist --branch=staging
-```
-
-### Custom Domain Setup
-
-1. **In Cloudflare Dashboard**:
-   - Go to Pages → Your Project → Custom domains
-   - Click "Set up a custom domain"
-   - Enter your domain (e.g., `ddminfotech.com`)
-   - Follow DNS configuration instructions
-
-2. **Update wrangler.toml** (optional):
-   ```toml
-   [env.production]
-   routes = [
-     { pattern = "ddminfotech.com", zone_name = "ddminfotech.com" }
-   ]
-   ```
-
-### Environment Variables
-
-If you need environment variables:
-
-1. **Via Dashboard**:
-   - Pages → Your Project → Settings → Environment variables
-   - Add key-value pairs
-
-2. **Via CLI** (for local development):
-   Create `.dev.vars` file:
-   ```
-   API_KEY=your-api-key
-   ```
-
-### Build Optimization
-
-The project includes:
-- ✅ TypeScript compilation before build
-- ✅ Vite production optimization
-- ✅ Asset minification and bundling
-- ✅ CSS Modules with tree-shaking
-- ✅ Security headers in `_headers` file
-- ✅ Client-side routing via `_redirects`
-
-### Post-Deployment
-
-1. **Verify deployment**:
-   - Cloudflare provides a `*.pages.dev` URL
-   - Example: `https://ddmtechnology.pages.dev`
-
-2. **Check build logs**:
+3. **Deploy to Cloudflare Pages**
    ```bash
-   npx wrangler pages deployment list
+   npm run deploy
+   ```
+   
+   Or for CI/CD:
+   ```bash
+   npm run deploy:ci
    ```
 
-3. **View deployment details**:
-   - Dashboard → Pages → Your Project → Deployments
+### Method 3: Direct Upload (Manual)
 
-### Preview Deployments
+1. Build locally:
+   ```bash
+   npm run build
+   ```
 
-Every branch and pull request gets its own preview URL:
-- Main branch: `https://ddmtechnology.pages.dev`
-- Branch: `https://[branch].ddmtechnology.pages.dev`
-- PR: Automatic preview URL in PR comments
+2. Go to Cloudflare Dashboard → Pages → "Upload assets"
 
-### Local Testing
+3. Drag and drop the `dist` folder
 
-Test the production build locally:
+## 🔧 Configuration Files
+
+### `wrangler.toml`
+- Configures Cloudflare Workers/Pages settings
+- Sets build commands and output directory
+- Defines environment variables
+
+### `_redirects`
+- Handles client-side routing for React
+- Prevents 404 errors on page refresh
+- Located in `public/_redirects`
+
+### `_headers`
+- Security and cache headers
+- CORS configuration
+- Located in `public/_headers`
+
+## 🧪 Testing Locally
+
+### Test with Vite Dev Server
 ```bash
-# Build the project
+npm run dev
+```
+Visit: http://localhost:3000
+
+### Test Production Build Locally
+```bash
 npm run build
-
-# Preview with Vite
 npm run preview
-
-# OR preview with Wrangler (simulates Cloudflare environment)
-npm run pages:dev
 ```
 
-### Troubleshooting
+### Test with Wrangler (Simulates Cloudflare)
+```bash
+npm run test:local
+```
 
-**Build fails**:
-- Ensure all dependencies are installed: `npm install`
-- Check TypeScript errors: `npm run build`
-- Review build logs in Cloudflare Dashboard
+## 🐛 Troubleshooting
 
-**404 on routes**:
-- Verify `_redirects` file exists in `public/` folder
-- Check that all routes redirect to `index.html`
+### Infinite Redirect Error
+**Error:** "Infinite loop detected in this rule"
 
-**Assets not loading**:
-- Check asset paths are relative, not absolute
-- Verify `dist` folder contains all assets after build
+**Solution:**
+1. Check `public/_redirects` file
+2. Ensure rules are in correct order:
+   ```
+   /*              /index.html    200
+   /*.html         /index.html    200
+   /assets/*       /assets/:splat 200
+   ```
+3. Rebuild: `npm run build`
 
-**Custom domain not working**:
-- Verify DNS records are properly configured
-- Wait for DNS propagation (up to 24 hours)
-- Check SSL/TLS settings in Cloudflare
+### Build Failures
 
-### Performance
+**TypeScript Errors:**
+```bash
+npm run lint
+npx tsc --noEmit
+```
 
-Cloudflare Pages provides:
-- ✅ Global CDN with 275+ locations
+**Clear Cache and Rebuild:**
+```bash
+rm -rf node_modules dist .vite
+npm install
+npm run build
+```
+
+### Assets Not Loading
+
+1. **Check asset paths** - Use relative paths starting with `/`
+2. **Verify build output:**
+   ```bash
+   ls -la dist/assets/
+   ```
+3. **Check `_redirects`** - Ensure `/assets/*` rule exists
+
+### Node Version Error
+
+**Error:** "Wrangler requires at least Node.js v20.0.0"
+
+**Solution:**
+```bash
+# Using nvm-windows (Windows)
+nvm install 20.18.1
+nvm use 20.18.1
+
+# Using Volta (Cross-platform)
+volta install node@20.18.1
+
+# Or download from nodejs.org
+```
+
+### Custom Domain Not Working
+
+1. **Add Custom Domain in Cloudflare:**
+   - Dashboard → Pages → Your Project → Custom domains
+   - Click "Set up a custom domain"
+   - Enter: `ddminfotech.com`
+
+2. **Update DNS Records:**
+   - Add CNAME record pointing to `ddmtechnology.pages.dev`
+   - Or use Cloudflare's automatic DNS setup
+
+3. **Wait for Propagation** (up to 24 hours)
+
+4. **Verify SSL Certificate:**
+   - Cloudflare auto-provisions SSL
+   - Check: Dashboard → SSL/TLS → Edge Certificates
+
+## 🔐 Environment Variables
+
+### For Local Development
+Create `.env` file (copy from `.env.example`):
+```env
+VITE_BASE_URL=/
+NODE_ENV=development
+```
+
+### For Production (Cloudflare Dashboard)
+1. Dashboard → Pages → Your Project → Settings → Environment variables
+2. Add:
+   - `NODE_ENV` = `production`
+   - `VITE_BASE_URL` = `/`
+
+### In GitHub Actions
+1. Repository → Settings → Secrets and variables → Actions
+2. Add:
+   - `CLOUDFLARE_API_TOKEN`
+   - `CLOUDFLARE_ACCOUNT_ID`
+
+## 📊 Performance Optimization
+
+### Automatic Optimizations (Cloudflare)
+- ✅ Global CDN (275+ locations)
 - ✅ Automatic HTTPS/SSL
-- ✅ Unlimited bandwidth
 - ✅ DDoS protection
 - ✅ Web Application Firewall (WAF)
-- ✅ Built-in analytics
+- ✅ Brotli compression
+- ✅ Image optimization
+- ✅ Edge caching
 
-### Rollback
+### Build Optimizations (Vite)
+- ✅ Code splitting
+- ✅ Tree shaking
+- ✅ Minification (Terser)
+- ✅ CSS optimization
+- ✅ Asset hashing
 
-To rollback to a previous deployment:
-1. Dashboard → Pages → Your Project → Deployments
-2. Find the working deployment
-3. Click "..." → "Rollback to this deployment"
+## 🔍 Monitoring & Analytics
 
-### CI/CD Integration
+### View Deployment Logs
+```bash
+npx wrangler pages deployment list
+```
 
-The GitHub integration provides automatic CI/CD:
-- ✅ Automatic builds on push
-- ✅ Preview deployments for PRs
-- ✅ Build status in GitHub checks
-- ✅ Deployment comments on PRs
+### Real-time Analytics
+- Dashboard → Pages → Your Project → Analytics
+- Metrics: Requests, Bandwidth, Cache hit ratio
 
-### Monitoring
+### Build Logs
+- Dashboard → Pages → Your Project → Deployments
+- Click any deployment to view logs
 
-Monitor your deployment:
-- **Analytics**: Dashboard → Pages → Your Project → Analytics
-- **Real-time logs**: Available during build
-- **Uptime**: Cloudflare's 100% uptime SLA
+## 🌍 Custom Domain Setup
 
-### Cost
+### Step 1: Add Domain to Cloudflare
+```bash
+# Via Dashboard
+Dashboard → Add a Site → Enter domain → Select Free Plan
+```
 
-Cloudflare Pages Free Tier includes:
-- Unlimited requests
-- Unlimited bandwidth
-- 500 builds per month
-- 1 build at a time
+### Step 2: Configure DNS
+```bash
+# Add CNAME record
+Type: CNAME
+Name: @
+Target: ddmtechnology.pages.dev
+Proxy: Proxied (orange cloud)
+```
 
-For higher limits, upgrade to Pages Pro.
+### Step 3: Update wrangler.toml (Optional)
+```toml
+[[routes]]
+pattern = "ddminfotech.com/*"
+zone_name = "ddminfotech.com"
+```
 
-### Next Steps
+## 🚦 CI/CD Pipeline
 
-1. Deploy your site using one of the methods above
-2. Configure a custom domain
-3. Set up analytics
-4. Enable web analytics in Cloudflare Dashboard
-5. Configure caching rules if needed
+The project includes GitHub Actions workflow (`.github/workflows/deploy.yml`):
 
-### Support
+**Triggers:**
+- Push to `main` branch
+- Pull requests to `main`
 
-- [Cloudflare Pages Documentation](https://developers.cloudflare.com/pages/)
-- [Wrangler CLI Documentation](https://developers.cloudflare.com/workers/wrangler/)
-- [Community Forum](https://community.cloudflare.com/c/developers/pages/)
+**Steps:**
+1. Checkout code
+2. Setup Node.js 20
+3. Install dependencies
+4. Run linter
+5. Build project
+6. Deploy to Cloudflare Pages
+7. Upload build artifacts
+
+## 📝 Deployment Checklist
+
+Before deploying:
+- [ ] Run `npm run lint` - No errors
+- [ ] Run `npm run build` - Successful build
+- [ ] Test locally with `npm run test:local`
+- [ ] Check `dist/` folder exists with all assets
+- [ ] Verify `_redirects` file in `dist/`
+- [ ] Verify `_headers` file in `dist/`
+- [ ] Remove console.log statements
+- [ ] Update environment variables in Cloudflare Dashboard
+
+## 🆘 Support Resources
+
+- **Cloudflare Pages Docs:** https://developers.cloudflare.com/pages/
+- **Wrangler Docs:** https://developers.cloudflare.com/workers/wrangler/
+- **Community Forum:** https://community.cloudflare.com/c/developers/pages/
+- **Status Page:** https://www.cloudflarestatus.com/
+
+## 🎯 Production URLs
+
+After deployment, your site will be available at:
+- **Production:** `https://ddmtechnology.pages.dev`
+- **Preview (branches):** `https://[branch].ddmtechnology.pages.dev`
+- **Custom Domain:** `https://ddminfotech.com` (after setup)
 
 ---
 
-**Quick Start Command**:
+## Quick Commands Reference
+
 ```bash
-npm install && npm run build && npx wrangler pages deploy dist
+# Development
+npm run dev              # Start dev server
+npm run build           # Build for production
+npm run preview         # Preview production build
+npm run lint            # Check for errors
+
+# Deployment
+npm run deploy          # Build and deploy to Cloudflare
+npm run deploy:ci       # Deploy with project name
+npm run test:local      # Test with Wrangler locally
+
+# Maintenance
+npm run format          # Format code with Prettier
+npm install             # Install dependencies
+npm ci                  # Clean install (CI/CD)
 ```
+
+---
+
+**Last Updated:** January 14, 2026

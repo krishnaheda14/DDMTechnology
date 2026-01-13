@@ -2,24 +2,15 @@ name = "ddmtechnology"
 compatibility_date = "2026-01-14"
 
 # Cloudflare Pages configuration
-# Use `directory` under [build] for Pages output
+[site]
+bucket = "./dist"
+
 [build]
 command = "npm run build"
-directory = "dist"
 
-# Environment variables (if needed)
+[build.upload]
+format = "service-worker"
+
+# Environment variables
 [vars]
-# Add any environment variables here
-# EXAMPLE_VAR = "value"
-
-# If deploying via the Pages dashboard you can set per-environment routes
-# [env.production]
-# routes = [
-#   { pattern = "ddminfotech.com", zone_name = "ddminfotech.com" }
-# ]
-
-# Optional: provide an assets directory so `wrangler deploy` (Workers) or
-# other CLI helpers can reference the built output. For Pages deployments
-# `wrangler pages deploy dist` is still preferred.
-[assets]
-directory = "./dist"
+NODE_ENV = "production"
