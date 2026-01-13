@@ -57,18 +57,21 @@
 - Maintained meta tags for SEO
 - **Result:** Proper base path for Cloudflare deployment
 
-### 6. Enhanced `package.json` Scripts
+### 6. Simplified `package.json` Scripts
 **File:** `package.json`
 
-**New Scripts:**
+**Essential Scripts:**
 ```json
 {
-  "deploy": "npm run build && wrangler pages deploy dist",
-  "deploy:ci": "npm run build && wrangler pages deploy dist --project-name=ddmtechnology",
-  "test:local": "npm run build && wrangler pages dev dist"
+  "dev": "vite",
+  "build": "tsc && vite build",
+  "lint": "eslint . --ext ts,tsx",
+  "preview": "vite preview",
+  "format": "prettier --write",
+  "type-check": "tsc --noEmit"
 }
 ```
-- **Result:** Streamlined deployment workflow
+- **Result:** Clean, focused scripts without deployment commands
 
 ### 7. Created Cloudflare Configuration
 **File:** `src/config/cloudflare-config.ts`
@@ -180,24 +183,18 @@ dist/
 
 ## 🚀 Deployment Instructions
 
-### Quick Deploy (CLI)
-```bash
-# 1. Authenticate
-npx wrangler login
-
-# 2. Deploy
-npm run deploy
-```
-
-### GitHub Integration (Recommended)
-1. Push to GitHub: `git push origin main`
-2. Connect repo in Cloudflare Dashboard
-3. Auto-deploy on every push
+### Cloudflare Pages Auto-Deploy (Recommended)
+1. **Connect your GitHub repository** in Cloudflare Dashboard → Pages
+2. Configure build settings:
+   - Build command: `npm run build`
+   - Output directory: `dist`
+3. **Every push to main auto-deploys** - No tokens needed!
 
 ### Local Testing
 ```bash
 # Test production build locally
-npm run test:local
+npm run build
+npm run preview
 ```
 
 ## 🔧 Troubleshooting Fixed
@@ -272,20 +269,14 @@ After deployment, your site will be available at:
 ## 📝 Next Steps
 
 1. **Deploy to Cloudflare:**
-   ```bash
-   npm run deploy
-   ```
+   - Connect GitHub repository in Cloudflare Pages Dashboard
+   - Automatic deployment on every push to main
 
 2. **Set up Custom Domain:**
    - Add domain in Cloudflare Dashboard
-   - Configure DNS records
-   - Update `wrangler.toml` routes (optional)
+   - Configure DNS records (automatic if domain on Cloudflare)
 
-3. **Configure GitHub Secrets:**
-   - Add `CLOUDFLARE_API_TOKEN`
-   - Add `CLOUDFLARE_ACCOUNT_ID`
-
-4. **Monitor Deployment:**
+3. **Monitor Deployment:**
    - Check build logs in Cloudflare Dashboard
    - View analytics and performance metrics
    - Set up alerts if needed

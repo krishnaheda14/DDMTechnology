@@ -1,0 +1,19 @@
+# Cloudflare Pages Build Configuration
+
+This file tells Cloudflare Pages how to build your project.
+
+## Build Settings
+
+- **Framework**: None (React + Vite)
+- **Build Command**: `npm run build`
+- **Build Output Directory**: `dist`
+- **Node Version**: 20.x
+- **Root Directory**: `/`
+
+## Environment Variables
+
+No environment variables required for build.
+
+## Deployment
+
+Push to main branch triggers automatic deployment.
