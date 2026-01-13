@@ -11,12 +11,7 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "format": "prettier --write \"src/**/*.{ts,tsx,css}\"",
-    "deploy": "npm run build && wrangler pages deploy dist",
-    "deploy:ci": "npm run build && wrangler pages deploy dist --project-name=ddmtechnology",
-    "pages:dev": "wrangler pages dev dist",
-    "pages:deploy": "wrangler pages deploy dist --project-name=ddmtechnology",
-    "test:local": "npm run build && wrangler pages dev dist"
+    "format": "prettier --write \"src/**/*.{ts,tsx,css}\""
   },
   "dependencies": {
     "react": "^18.2.0",
