@@ -25,7 +25,6 @@ export const ValueProposition: React.FC = () => {
               className={`${styles.pillar} ${isVisible ? 'animate-slide-up' : ''}`}
               style={{ animationDelay: `${index * 150}ms` }}
             >
-              <div className={styles.pillarIcon}>{pillar.icon}</div>
               <h3 className={styles.pillarTitle}>{pillar.title}</h3>
               <p className={styles.pillarDescription}>{pillar.description}</p>
             </div>

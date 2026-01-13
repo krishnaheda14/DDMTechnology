@@ -9,7 +9,7 @@ export interface TrustBadgeProps {
 export const TrustBadge: React.FC<TrustBadgeProps> = ({ text, icon }) => {
   return (
     <div className={styles.badge}>
-      {icon && <span className={styles.icon}>{icon}</span>}
+      <span className={styles.bullet}>●</span>
       <span className={styles.text}>{text}</span>
     </div>
   )

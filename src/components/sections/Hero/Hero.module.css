@@ -46,6 +46,17 @@
   margin-bottom: var(--spacing-xl);
 }
 
+.brandName {
+  font-size: clamp(var(--font-size-xl), 3vw, var(--font-size-3xl));
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white);
+  letter-spacing: 2px;
+  margin-bottom: var(--spacing-md);
+  text-transform: uppercase;
+  opacity: 0.95;
+}
+
 .title {
   font-size: clamp(var(--font-size-4xl), 6vw, var(--font-size-6xl));
   font-family: var(--font-heading);
@@ -54,18 +65,12 @@
   margin-bottom: var(--spacing-md);
 }
 
-.separator {
-  color: var(--color-secondary);
-  margin: 0 var(--spacing-xs);
-}
-
 .highlight {
-  display: block;
   background: var(--gradient-gold);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-top: var(--spacing-sm);
+  color: var(--color-secondary);
 }
 
 .subtitle {
@@ -112,12 +117,13 @@
 
 .gridItem {
   aspect-ratio: 1;
-  background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(174, 183, 194, 0.05) 100%);
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(174, 183, 194, 0.08) 100%);
+  border: 2px solid rgba(212, 175, 55, 0.3);
   border-radius: var(--radius-lg);
   position: relative;
   overflow: hidden;
   transition: all var(--transition-base);
+  backdrop-filter: blur(10px);
 }
 
 .gridItem::before {

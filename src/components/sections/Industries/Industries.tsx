@@ -27,7 +27,6 @@ export const Industries: React.FC = () => {
               } ${isVisible ? 'animate-scale-in' : ''}`}
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className={styles.icon}>{industry.icon}</div>
               <h3 className={styles.industryName}>{industry.name}</h3>
               <p className={styles.industryDescription}>{industry.description}</p>
               {industry.isHighlighted && (

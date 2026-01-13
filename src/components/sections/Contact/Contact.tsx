@@ -94,29 +94,20 @@ export const Contact: React.FC = () => {
 
             <div className={styles.contactDetails}>
               <div className={styles.detailItem}>
-                <div className={styles.detailIcon}>📧</div>
-                <div className={styles.detailContent}>
-                  <div className={styles.detailLabel}>Email</div>
-                  <a href={`mailto:${SITE_CONFIG.email}`} className={styles.detailValue}>
-                    {SITE_CONFIG.email}
-                  </a>
-                </div>
+                <div className={styles.detailLabel}>Email</div>
+                <a href={`mailto:${SITE_CONFIG.email}`} className={styles.detailValue}>
+                  {SITE_CONFIG.email}
+                </a>
               </div>
 
               <div className={styles.detailItem}>
-                <div className={styles.detailIcon}>📍</div>
-                <div className={styles.detailContent}>
-                  <div className={styles.detailLabel}>Location</div>
-                  <div className={styles.detailValue}>{SITE_CONFIG.location}</div>
-                </div>
+                <div className={styles.detailLabel}>Location</div>
+                <div className={styles.detailValue}>{SITE_CONFIG.location}</div>
               </div>
 
               <div className={styles.detailItem}>
-                <div className={styles.detailIcon}>💼</div>
-                <div className={styles.detailContent}>
-                  <div className={styles.detailLabel}>Consultations</div>
-                  <div className={styles.detailValue}>Private & Confidential</div>
-                </div>
+                <div className={styles.detailLabel}>Consultations</div>
+                <div className={styles.detailValue}>Private & Confidential</div>
               </div>
             </div>
           </div>

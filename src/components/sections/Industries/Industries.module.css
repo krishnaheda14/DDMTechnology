@@ -48,12 +48,6 @@
   box-shadow: var(--shadow-gold);
 }
 
-.icon {
-  font-size: var(--font-size-5xl);
-  margin-bottom: var(--spacing-md);
-  line-height: 1;
-}
-
 .industryName {
   font-size: var(--font-size-xl);
   font-family: var(--font-heading);

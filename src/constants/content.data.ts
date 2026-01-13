@@ -6,28 +6,24 @@ export const VALUE_PILLARS: ValuePillar[] = [
     title: 'Built for Founders',
     description:
       'We understand the founder mindset. Every solution is crafted to give you control, clarity, and the freedom to focus on growth.',
-    icon: '👔',
   },
   {
     id: 'luxury-execution',
     title: 'Luxury in Execution',
     description:
       'Premium quality in every detail. From elegant interfaces to robust architecture, we deliver software that reflects the excellence of your business.',
-    icon: '✨',
   },
   {
     id: 'founder-led',
     title: 'Founder-Led Accountability',
     description:
       'Direct access to leadership. Your project is guided by experienced founders who understand business strategy, not just code.',
-    icon: '🤝',
   },
   {
     id: 'scalable-design',
     title: 'Scalable by Design',
     description:
       'Built to grow with you. Our systems are architected for expansion, ensuring your software investment compounds over time.',
-    icon: '📈',
   },
 ]
 

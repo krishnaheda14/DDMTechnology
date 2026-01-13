@@ -27,7 +27,7 @@ export const Products: React.FC = () => {
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <Card variant={product.isFeatured ? 'featured' : 'default'} hoverable>
-                <CardHeader icon={product.icon}>
+                <CardHeader>
                   <h3 className={styles.productTitle}>{product.title}</h3>
                 </CardHeader>
                 <CardBody>

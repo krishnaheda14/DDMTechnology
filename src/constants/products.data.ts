@@ -14,7 +14,6 @@ export const PRODUCTS: Product[] = [
       'Multi-location Support',
     ],
     isFeatured: true,
-    icon: '💎',
   },
   {
     id: 'custom-crm',
@@ -29,7 +28,6 @@ export const PRODUCTS: Product[] = [
       'Mobile Accessible',
     ],
     isFeatured: false,
-    icon: '🎯',
   },
   {
     id: 'enterprise-erp',
@@ -44,7 +42,6 @@ export const PRODUCTS: Product[] = [
       'Compliance & Security',
     ],
     isFeatured: false,
-    icon: '🏢',
   },
   {
     id: 'ai-automation',
@@ -59,6 +56,5 @@ export const PRODUCTS: Product[] = [
       'Continuous Optimization',
     ],
     isFeatured: false,
-    icon: '🤖',
   },
 ]

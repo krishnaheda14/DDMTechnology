@@ -40,19 +40,15 @@ export const Clients: React.FC = () => {
           </div>
           <div className={styles.trustPoints}>
             <div className={styles.trustPoint}>
-              <div className={styles.trustIcon}>🔒</div>
               <div className={styles.trustLabel}>Enterprise-Grade Security</div>
             </div>
             <div className={styles.trustPoint}>
-              <div className={styles.trustIcon}>⚡</div>
               <div className={styles.trustLabel}>High-Performance Systems</div>
             </div>
             <div className={styles.trustPoint}>
-              <div className={styles.trustIcon}>🤝</div>
               <div className={styles.trustLabel}>Dedicated Support</div>
             </div>
             <div className={styles.trustPoint}>
-              <div className={styles.trustIcon}>📈</div>
               <div className={styles.trustLabel}>Measurable Results</div>
             </div>
           </div>

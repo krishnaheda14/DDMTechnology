@@ -58,12 +58,6 @@
   box-shadow: var(--shadow-gold);
 }
 
-.pillarIcon {
-  font-size: var(--font-size-4xl);
-  margin-bottom: var(--spacing-md);
-  line-height: 1;
-}
-
 .pillarTitle {
   font-size: var(--font-size-2xl);
   font-family: var(--font-heading);

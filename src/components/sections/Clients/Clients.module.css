@@ -83,12 +83,20 @@
 }
 
 .trustPoint {
-  text-align: center;
+  text-align: left;
+  position: relative;
+  padding-left: var(--spacing-md);
 }
 
-.trustIcon {
-  font-size: var(--font-size-4xl);
-  margin-bottom: var(--spacing-sm);
+.trustPoint::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  background: var(--color-secondary);
+  border-radius: 50%;
 }
 
 .trustLabel {

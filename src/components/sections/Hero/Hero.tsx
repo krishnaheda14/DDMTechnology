@@ -10,14 +10,13 @@ export const Hero: React.FC = () => {
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.badges}>
-            <TrustBadge text="Founder-Led" icon="👔" />
-            <TrustBadge text="Enterprise-Grade" icon="🏢" />
-            <TrustBadge text="Scalable by Design" icon="📈" />
+            <TrustBadge text="Founder-Led" />
+            <TrustBadge text="Enterprise-Grade" />
+            <TrustBadge text="Scalable by Design" />
           </div>
 
+          <div className={styles.brandName}>DDM INFOTECH</div>
           <h1 className={styles.title}>
-            DDM INFOTECH
-            <span className={styles.separator}>:</span>
             <span className={styles.highlight}>Automating Growth</span>
           </h1>
 
