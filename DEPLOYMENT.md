@@ -94,6 +94,28 @@ npx wrangler pages deploy dist
 npm run pages:deploy
 ```
 
+**Notes on `wrangler deploy` vs `wrangler pages deploy`**
+
+- If you prefer to use `wrangler deploy` (Workers-style), provide the built assets with the `--assets` flag:
+
+```bash
+# Deploy assets explicitly (Workers CLI)
+npx wrangler deploy --assets=./dist
+```
+
+- Or include an `[assets]` section in your `wrangler.toml`:
+
+```toml
+[assets]
+directory = "./dist"
+```
+
+However, for Cloudflare Pages projects the recommended command remains:
+
+```bash
+npx wrangler pages deploy dist
+```
+
 #### Method 3: Direct Upload
 
 1. Build the project locally:

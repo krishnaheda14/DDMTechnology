@@ -17,3 +17,9 @@ directory = "dist"
 # routes = [
 #   { pattern = "ddminfotech.com", zone_name = "ddminfotech.com" }
 # ]
+
+# Optional: provide an assets directory so `wrangler deploy` (Workers) or
+# other CLI helpers can reference the built output. For Pages deployments
+# `wrangler pages deploy dist` is still preferred.
+[assets]
+directory = "./dist"
