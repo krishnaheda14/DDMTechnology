@@ -1,0 +1,111 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  cursor: pointer;
+  transition: transform var(--transition-base);
+}
+
+.logo:hover {
+  transform: scale(1.02);
+}
+
+.logoIcon {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -1px;
+}
+
+.letterD,
+.letterM {
+  line-height: 1;
+}
+
+.dark .letterD {
+  color: var(--color-primary);
+}
+
+.dark .letterM {
+  color: var(--color-secondary);
+}
+
+.light .letterD {
+  color: var(--color-white);
+}
+
+.light .letterM {
+  color: var(--color-secondary);
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.companyName {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 1px;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.tagline {
+  font-size: 0.65em;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.5px;
+  opacity: 0.8;
+  line-height: 1;
+}
+
+/* Sizes */
+.sm .logoIcon {
+  font-size: var(--font-size-2xl);
+}
+
+.sm .companyName {
+  font-size: var(--font-size-sm);
+}
+
+.md .logoIcon {
+  font-size: var(--font-size-3xl);
+}
+
+.md .companyName {
+  font-size: var(--font-size-base);
+}
+
+.lg .logoIcon {
+  font-size: var(--font-size-4xl);
+}
+
+.lg .companyName {
+  font-size: var(--font-size-lg);
+}
+
+.dark .companyName,
+.dark .tagline {
+  color: var(--color-primary);
+}
+
+.light .companyName,
+.light .tagline {
+  color: var(--color-white);
+}
+
+@media (max-width: 768px) {
+  .logo {
+    gap: var(--spacing-xs);
+  }
+
+  .md .logoIcon {
+    font-size: var(--font-size-2xl);
+  }
+
+  .md .companyName {
+    font-size: var(--font-size-sm);
+  }
+}

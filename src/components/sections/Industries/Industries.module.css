@@ -1,0 +1,107 @@
+.industries {
+  padding: var(--spacing-4xl) 0;
+  background-color: var(--color-white);
+}
+
+.container {
+  max-width: var(--container-2xl);
+  margin: 0 auto;
+  padding: 0 var(--spacing-xl);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-xl);
+}
+
+.industryCard {
+  padding: var(--spacing-xl);
+  background-color: var(--color-white);
+  border: 2px solid var(--color-accent-grey);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  transition: all var(--transition-base);
+  position: relative;
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.visible .industryCard {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.industryCard:hover {
+  transform: translateY(-5px) scale(1);
+  border-color: var(--color-secondary);
+  box-shadow: var(--shadow-gold);
+}
+
+.highlighted {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(10, 26, 47, 0.02) 100%);
+  border-color: var(--color-secondary);
+  border-width: 3px;
+}
+
+.highlighted:hover {
+  box-shadow: var(--shadow-gold);
+}
+
+.icon {
+  font-size: var(--font-size-5xl);
+  margin-bottom: var(--spacing-md);
+  line-height: 1;
+}
+
+.industryName {
+  font-size: var(--font-size-xl);
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.industryDescription {
+  color: var(--color-accent-grey);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+}
+
+.badge {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  background: var(--gradient-gold);
+  color: var(--color-primary);
+  padding: 4px var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .industries {
+    padding: var(--spacing-3xl) 0;
+  }
+
+  .container {
+    padding: 0 var(--spacing-md);
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .industryCard {
+    padding: var(--spacing-lg);
+  }
+}

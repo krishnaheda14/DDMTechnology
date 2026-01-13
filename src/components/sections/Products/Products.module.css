@@ -1,0 +1,120 @@
+.products {
+  padding: var(--spacing-4xl) 0;
+  background-color: var(--color-off-white);
+}
+
+.container {
+  max-width: var(--container-2xl);
+  margin: 0 auto;
+  padding: 0 var(--spacing-xl);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-3xl);
+}
+
+.productCard {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.visible .productCard {
+  opacity: 1;
+  transform: translateY(0);
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+.productTitle {
+  font-size: var(--font-size-2xl);
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.productDescription {
+  color: var(--color-accent-grey);
+  font-size: var(--font-size-base);
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.6;
+}
+
+.featureList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-xs) 0;
+  color: var(--color-primary);
+  font-size: var(--font-size-sm);
+}
+
+.checkmark {
+  color: var(--color-secondary);
+  font-weight: var(--font-weight-bold);
+  flex-shrink: 0;
+  font-size: var(--font-size-lg);
+}
+
+.cta {
+  text-align: center;
+  padding: var(--spacing-2xl);
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(10, 26, 47, 0.02) 100%);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--color-secondary);
+}
+
+.ctaText {
+  font-size: var(--font-size-xl);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-medium);
+  margin: 0;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .products {
+    padding: var(--spacing-3xl) 0;
+  }
+
+  .container {
+    padding: 0 var(--spacing-md);
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta {
+    padding: var(--spacing-xl);
+  }
+
+  .ctaText {
+    font-size: var(--font-size-lg);
+  }
+}

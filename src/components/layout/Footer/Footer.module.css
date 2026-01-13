@@ -1,0 +1,111 @@
+.footer {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: var(--spacing-3xl) 0 var(--spacing-xl);
+  border-top: 2px solid var(--color-secondary);
+}
+
+.container {
+  max-width: var(--container-2xl);
+  margin: 0 auto;
+  padding: 0 var(--spacing-xl);
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: var(--spacing-3xl);
+  margin-bottom: var(--spacing-3xl);
+  padding-bottom: var(--spacing-3xl);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.brand {
+  max-width: 400px;
+}
+
+.description {
+  margin-top: var(--spacing-md);
+  color: var(--color-accent-grey);
+  line-height: 1.6;
+  font-size: var(--font-size-sm);
+}
+
+.heading {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-md);
+  color: var(--color-secondary);
+}
+
+.contactList,
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contactList li,
+.linkList li {
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-accent-grey);
+  font-size: var(--font-size-sm);
+}
+
+.link {
+  color: var(--color-accent-grey);
+  transition: color var(--transition-base);
+  text-decoration: none;
+}
+
+.link:hover {
+  color: var(--color-secondary);
+}
+
+.bottom {
+  text-align: center;
+}
+
+.copyright {
+  font-size: var(--font-size-sm);
+  color: var(--color-accent-grey);
+  margin-bottom: var(--spacing-xs);
+}
+
+.tagline {
+  font-size: var(--font-size-sm);
+  color: var(--color-accent-grey);
+  font-style: italic;
+}
+
+@media (max-width: 1024px) {
+  .top {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-2xl);
+  }
+
+  .brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: var(--spacing-2xl) 0 var(--spacing-lg);
+  }
+
+  .container {
+    padding: 0 var(--spacing-md);
+  }
+
+  .top {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+  }
+
+  .brand {
+    grid-column: 1;
+  }
+}

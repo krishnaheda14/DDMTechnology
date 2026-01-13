@@ -1,0 +1,231 @@
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-charcoal) 100%);
+  color: var(--color-white);
+  padding: calc(80px + var(--spacing-3xl)) var(--spacing-xl) var(--spacing-3xl);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at 30% 50%,
+    rgba(212, 175, 55, 0.1) 0%,
+    transparent 50%
+  );
+  pointer-events: none;
+}
+
+.container {
+  max-width: var(--container-2xl);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: var(--spacing-3xl);
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.content {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-xl);
+}
+
+.title {
+  font-size: clamp(var(--font-size-4xl), 6vw, var(--font-size-6xl));
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.1;
+  margin-bottom: var(--spacing-md);
+}
+
+.separator {
+  color: var(--color-secondary);
+  margin: 0 var(--spacing-xs);
+}
+
+.highlight {
+  display: block;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-top: var(--spacing-sm);
+}
+
+.subtitle {
+  font-size: clamp(var(--font-size-lg), 2.5vw, var(--font-size-2xl));
+  color: var(--color-accent-grey);
+  margin-bottom: var(--spacing-xl);
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+.cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+}
+
+.cta button {
+  color: var(--color-white);
+}
+
+.tagline {
+  padding-top: var(--spacing-xl);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tagline p {
+  color: var(--color-accent-grey);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  max-width: 550px;
+}
+
+.visual {
+  position: relative;
+  animation: slideInRight 0.8s ease-out;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.gridItem {
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(174, 183, 194, 0.05) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-base);
+}
+
+.gridItem::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(212, 175, 55, 0.1) 50%,
+    transparent 70%
+  );
+  animation: shimmer 3s infinite;
+}
+
+.gridItem:hover {
+  transform: scale(1.05);
+  border-color: var(--color-secondary);
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: var(--spacing-xl);
+  left: 50%;
+  transform: translateX(-50%);
+  animation: fadeIn 1s ease-out 1s both;
+}
+
+.mouse {
+  display: block;
+  width: 24px;
+  height: 40px;
+  border: 2px solid var(--color-secondary);
+  border-radius: 12px;
+  position: relative;
+}
+
+.wheel {
+  display: block;
+  width: 4px;
+  height: 8px;
+  background-color: var(--color-secondary);
+  border-radius: 2px;
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scroll 2s infinite;
+}
+
+@keyframes scroll {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) translateY(12px);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+  }
+
+  .visual {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: calc(80px + var(--spacing-2xl)) var(--spacing-md) var(--spacing-2xl);
+    min-height: auto;
+  }
+
+  .badges {
+    gap: var(--spacing-xs);
+  }
+
+  .cta {
+    flex-direction: column;
+  }
+
+  .cta button {
+    width: 100%;
+  }
+
+  .visual {
+    display: none;
+  }
+
+  .scrollIndicator {
+    display: none;
+  }
+}
