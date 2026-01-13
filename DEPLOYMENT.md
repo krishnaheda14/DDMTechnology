@@ -13,6 +13,26 @@ This website is configured for deployment on Cloudflare Pages, a fast and secure
    # OR use the project's local version via npm scripts
    ```
 
+3. **Node.js (v20+)**: Cloudflare Wrangler requires Node.js v20 or newer. If your system uses an older Node version (for example, v18), upgrade using a version manager.
+
+   Windows (nvm-windows):
+   ```powershell
+   # Install nvm-windows from https://github.com/coreybutler/nvm-windows/releases
+   nvm install 20.18.1
+   nvm use 20.18.1
+   node -v
+   ```
+
+   Cross-platform (Volta):
+   ```bash
+   curl https://get.volta.sh | bash
+   volta install node@20.18.1
+   volta pin node@20.18.1
+   node -v
+   ```
+
+   Alternatively, download the official Node.js installer for v20 from https://nodejs.org/en/download/.
+
 ### Initial Setup
 
 1. **Login to Cloudflare**:
