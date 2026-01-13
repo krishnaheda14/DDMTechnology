@@ -4,7 +4,7 @@ import { SectionTitle } from '@components/ui/SectionTitle'
 import { Button } from '@components/ui/Button'
 import { SITE_CONFIG } from '@constants/site.config'
 import { validateEmail } from '@utils/validation'
-import type { ContactFormData } from '@types/section.types'
+import type { ContactFormData } from '@/types/section.types'
 
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState<ContactFormData>({

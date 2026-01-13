@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './Logo.module.css'
+import logoUrl from '../../../../logo.png'
 
 export interface LogoProps {
   size?: 'sm' | 'md' | 'lg'
@@ -10,9 +11,7 @@ export const Logo: React.FC<LogoProps> = ({ size = 'md', variant = 'dark' }) => 
   return (
     <div className={`${styles.logo} ${styles[size]} ${styles[variant]}`}>
       <div className={styles.logoIcon}>
-        <span className={styles.letterD}>D</span>
-        <span className={styles.letterD}>D</span>
-        <span className={styles.letterM}>M</span>
+        <img src={logoUrl} alt="DDM Infotech" className={styles.logoImage} />
       </div>
       <div className={styles.logoText}>
         <div className={styles.companyName}>DDM INFOTECH</div>

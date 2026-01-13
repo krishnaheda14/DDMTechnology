@@ -1,4 +1,4 @@
-import { ValuePillar, ProcessStep, ClientType } from '@types/section.types'
+import { ValuePillar, ProcessStep, ClientType } from '@/types/section.types'
 
 export const VALUE_PILLARS: ValuePillar[] = [
   {

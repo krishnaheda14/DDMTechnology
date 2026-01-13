@@ -6,7 +6,7 @@ export interface TrustBadgeProps {
   icon?: string
 }
 
-export const TrustBadge: React.FC<TrustBadgeProps> = ({ text, icon }) => {
+export const TrustBadge: React.FC<TrustBadgeProps> = ({ text }) => {
   return (
     <div className={styles.badge}>
       <span className={styles.bullet}>●</span>

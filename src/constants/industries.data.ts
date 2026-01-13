@@ -1,4 +1,4 @@
-import { Industry } from '@types/section.types'
+import { Industry } from '@/types/section.types'
 
 export const INDUSTRIES: Industry[] = [
   {
