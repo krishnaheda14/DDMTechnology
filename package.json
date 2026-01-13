@@ -1,5 +1,5 @@
 {
-  "name": "ddm-infotech-website",
+  "name": "ddmtechnology",
   "private": true,
   "version": "1.0.0",
   "engines": {
@@ -14,7 +14,7 @@
     "format": "prettier --write \"src/**/*.{ts,tsx,css}\"",
     "deploy": "npm run build && wrangler pages deploy dist",
     "pages:dev": "wrangler pages dev dist",
-    "pages:deploy": "wrangler pages deploy dist --project-name=ddm-infotech-website"
+    "pages:deploy": "wrangler pages deploy dist --project-name=ddmtechnology"
   },
   "dependencies": {
     "react": "^18.2.0",

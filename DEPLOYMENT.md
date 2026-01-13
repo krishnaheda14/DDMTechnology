@@ -43,7 +43,7 @@ This website is configured for deployment on Cloudflare Pages, a fast and secure
 
 2. **Verify Configuration**:
    Check `wrangler.toml` for project settings:
-   - Project name: `ddm-infotech-website`
+   - Project name: `ddmtechnology`
    - Build output: `dist`
    - Build command: `npm run build`
 
@@ -183,7 +183,7 @@ The project includes:
 
 1. **Verify deployment**:
    - Cloudflare provides a `*.pages.dev` URL
-   - Example: `https://ddm-infotech-website.pages.dev`
+   - Example: `https://ddmtechnology.pages.dev`
 
 2. **Check build logs**:
    ```bash
@@ -196,8 +196,8 @@ The project includes:
 ### Preview Deployments
 
 Every branch and pull request gets its own preview URL:
-- Main branch: `https://ddm-infotech-website.pages.dev`
-- Branch: `https://[branch].ddm-infotech-website.pages.dev`
+- Main branch: `https://ddmtechnology.pages.dev`
+- Branch: `https://[branch].ddmtechnology.pages.dev`
 - PR: Automatic preview URL in PR comments
 
 ### Local Testing
