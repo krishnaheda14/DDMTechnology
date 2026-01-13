@@ -18,17 +18,13 @@ export const Contact: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target as HTMLInputElement
     setFormData((prev) => ({ ...prev, [name]: value }))
-    if (errors[name as keyof ContactFormData]) {
-      setErrors((prev) => ({ ...prev, [name]: '' }))
-    }
+    setErrors((prev) => ({ ...prev, [name]: undefined }))
   }
 
-  const validateForm = (): boolean => {
+  const validateForm = () => {
     const newErrors: Partial<ContactFormData> = {}
 
     if (!formData.name.trim()) {
@@ -52,22 +48,17 @@ export const Contact: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    if (!validateForm()) {
-      return
-    }
+    if (!validateForm()) return
 
     setIsSubmitting(true)
     setSubmitStatus('idle')
 
     try {
       // Simulate API call - replace with actual submission logic
-      await new Promise((resolve) => setTimeout(resolve, 1500))
-
-      console.log('Form submitted:', formData)
+      await new Promise((resolve) => setTimeout(resolve, 1200))
       setSubmitStatus('success')
       setFormData({ name: '', email: '', company: '', message: '' })
     } catch (error) {
-      console.error('Form submission error:', error)
       setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
@@ -177,13 +168,7 @@ export const Contact: React.FC = () => {
                 {errors.message && <span className={styles.error}>{errors.message}</span>}
               </div>
 
-              <Button
-                type="submit"
-                variant="primary"
-                size="lg"
-                fullWidth
-                disabled={isSubmitting}
-              >
+              <Button type="submit" variant="primary" size="lg" fullWidth disabled={isSubmitting}>
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </Button>
 
