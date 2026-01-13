@@ -2,7 +2,9 @@ import React from 'react'
 import styles from './Hero.module.css'
 import { Button } from '@components/ui/Button'
 import { TrustBadge } from '@components/ui/TrustBadge'
+import { SolutionCard } from '@components/ui/SolutionCard'
 import { scrollToSection } from '@utils/scroll'
+import { SOLUTION_CARDS } from '@constants/solutions.data'
 
 export const Hero: React.FC = () => {
   return (
@@ -52,10 +54,15 @@ export const Hero: React.FC = () => {
 
         <div className={styles.visual}>
           <div className={styles.grid}>
-            <div className={styles.gridItem}></div>
-            <div className={styles.gridItem}></div>
-            <div className={styles.gridItem}></div>
-            <div className={styles.gridItem}></div>
+            {SOLUTION_CARDS.map((card, index) => (
+              <SolutionCard
+                key={index}
+                title={card.title}
+                subtitle={card.subtitle}
+                icon={card.icon}
+                gradient={card.gradient}
+              />
+            ))}
           </div>
         </div>
       </div>

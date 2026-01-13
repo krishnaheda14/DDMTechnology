@@ -115,47 +115,6 @@
   gap: var(--spacing-lg);
 }
 
-.gridItem {
-  aspect-ratio: 1;
-  background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(174, 183, 194, 0.08) 100%);
-  border: 2px solid rgba(212, 175, 55, 0.3);
-  border-radius: var(--radius-lg);
-  position: relative;
-  overflow: hidden;
-  transition: all var(--transition-base);
-  backdrop-filter: blur(10px);
-}
-
-.gridItem::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    45deg,
-    transparent 30%,
-    rgba(212, 175, 55, 0.1) 50%,
-    transparent 70%
-  );
-  animation: shimmer 3s infinite;
-}
-
-.gridItem:hover {
-  transform: scale(1.05);
-  border-color: var(--color-secondary);
-}
-
-@keyframes shimmer {
-  0% {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  100% {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
-}
-
 .scrollIndicator {
   position: absolute;
   bottom: var(--spacing-xl);

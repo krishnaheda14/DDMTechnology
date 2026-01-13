@@ -100,6 +100,24 @@ export const Contact: React.FC = () => {
                 <div className={styles.detailLabel}>Consultations</div>
                 <div className={styles.detailValue}>Private & Confidential</div>
               </div>
+
+              <div className={styles.detailItem}>
+                <div className={styles.detailLabel}>Primary Contact</div>
+                <div className={styles.detailValue}>
+                  Akash Mirande
+                  <br />
+                  <a href="tel:+919890000867" className={styles.detailValue} aria-label="Call Akash Mirande">+91 98900 00867</a>
+                </div>
+              </div>
+
+              <div className={styles.detailItem}>
+                <div className={styles.detailLabel}>Secondary Contact</div>
+                <div className={styles.detailValue}>
+                  Krishna Heda
+                  <br />
+                  <a href="tel:+919922253469" className={styles.detailValue} aria-label="Call Krishna Heda">+91 99222 53469</a>
+                </div>
+              </div>
             </div>
           </div>
 
