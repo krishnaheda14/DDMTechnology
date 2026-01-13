@@ -73,6 +73,8 @@ Cloudflare will automatically deploy on every push to your main branch.
 
 #### Method 2: Manual Deployment via CLI
 
+**Important:** Do not run `npx wrangler deploy` — that runs Workers-specific deploy and will fail for Pages projects. Use the Pages-specific command below.
+
 **Quick Deploy**:
 ```bash
 npm run deploy
@@ -83,7 +85,7 @@ npm run deploy
 # 1. Build the project
 npm run build
 
-# 2. Deploy to Cloudflare Pages
+# 2. Deploy to Cloudflare Pages (Pages CLI)
 npx wrangler pages deploy dist
 ```
 

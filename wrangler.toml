@@ -2,20 +2,17 @@ name = "ddm-infotech-website"
 compatibility_date = "2026-01-14"
 
 # Cloudflare Pages configuration
-pages_build_output_dir = "dist"
-
+# Use `directory` under [build] for Pages output
 [build]
 command = "npm run build"
-
-[build.upload]
-format = "service-worker"
+directory = "dist"
 
 # Environment variables (if needed)
 [vars]
 # Add any environment variables here
 # EXAMPLE_VAR = "value"
 
-# Custom domain configuration (optional)
+# If deploying via the Pages dashboard you can set per-environment routes
 # [env.production]
 # routes = [
 #   { pattern = "ddminfotech.com", zone_name = "ddminfotech.com" }
