@@ -157,15 +157,20 @@
 }
 
 @media (max-width: 1024px) {
-  .container {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-2xl);
+  .visual {
+    display: block;
+    width: 100%;
   }
 
-  .visual {
-    max-width: 100%;
+  /* For very small screens show single-column stack for better readability */
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .card {
     margin: 0 auto;
-    display: block;
+    max-width: 420px;
   }
 }
 

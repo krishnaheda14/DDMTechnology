@@ -8,7 +8,7 @@ export const Clients: React.FC = () => {
   const { ref, isVisible } = useScrollAnimation()
 
   return (
-    <section className={styles.clients} id="clients">
+    <section className={`${styles.clients} reveal-on-scroll`} id="clients">
       <div className={styles.container}>
         <SectionTitle
           title="Who We Work With"
@@ -17,12 +17,12 @@ export const Clients: React.FC = () => {
 
         <div
           ref={ref}
-          className={`${styles.grid} ${isVisible ? styles.visible : ''}`}
+          className={`${styles.grid} ${isVisible ? styles.visible : ''} reveal-on-scroll delay-1`}
         >
           {CLIENT_TYPES.map((client, index) => (
             <div
               key={client.id}
-              className={`${styles.clientCard} ${isVisible ? 'animate-slide-up' : ''}`}
+              className={`${styles.clientCard} ${isVisible ? 'animate-slide-up' : ''} reveal-on-scroll delay-${Math.min(3, (index % 3) + 1)}`}
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <h3 className={styles.clientType}>{client.type}</h3>
@@ -31,7 +31,7 @@ export const Clients: React.FC = () => {
           ))}
         </div>
 
-        <div className={styles.trustSection}>
+        <div className={`${styles.trustSection} reveal-on-scroll delay-2`}>
           <div className={styles.trustHeading}>
             <h3 className={styles.trustTitle}>Built on Trust & Excellence</h3>
             <p className={styles.trustSubtitle}>

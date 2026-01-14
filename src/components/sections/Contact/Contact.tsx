@@ -88,15 +88,15 @@ export const Contact: React.FC = () => {
   }
 
   return (
-    <section className={styles.contact} id="contact">
+    <section className={`${styles.contact} reveal-on-scroll`} id="contact">
       <div className={styles.container}>
         <SectionTitle
           title="Let's Build Your Future"
           subtitle="Schedule a private consultation to discuss your business needs"
         />
 
-        <div className={styles.content}>
-          <div className={styles.info}>
+        <div className={`${styles.content} reveal-on-scroll delay-1`}>
+          <div className={`${styles.info} reveal-on-scroll delay-2`}>
             <div className={styles.infoBlock}>
               <h3 className={styles.infoTitle}>Get in Touch</h3>
               <p className={styles.infoText}>

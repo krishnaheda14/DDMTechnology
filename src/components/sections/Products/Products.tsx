@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './Products.module.css'
 import { SectionTitle } from '@components/ui/SectionTitle'
 import { Card, CardHeader, CardBody } from '@components/ui/Card'
 import { PRODUCTS } from '@constants/products.data'
 import { useScrollAnimation } from '@hooks/useScrollAnimation'
+import { JewelrySystemModal } from '@components/ui/JewelrySystemModal'
+import { Button } from '@components/ui/Button'
 
 export const Products: React.FC = () => {
   const { ref, isVisible } = useScrollAnimation()
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   return (
     <section className={styles.products} id="products">
@@ -51,8 +54,18 @@ export const Products: React.FC = () => {
             Need something different? We build custom solutions tailored to your unique business
             needs.
           </p>
+          <Button
+            onClick={() => setIsModalOpen(true)}
+            variant="primary"
+            size="lg"
+            className={styles.jewelryButton}
+          >
+            View Our Jewelry ERP System Features
+          </Button>
         </div>
       </div>
+
+      <JewelrySystemModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   )
 }

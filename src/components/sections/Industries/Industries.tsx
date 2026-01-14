@@ -8,7 +8,7 @@ export const Industries: React.FC = () => {
   const { ref, isVisible } = useScrollAnimation()
 
   return (
-    <section className={styles.industries} id="industries">
+    <section className={`${styles.industries} reveal-on-scroll`} id="industries">
       <div className={styles.container}>
         <SectionTitle
           title="Industries We Serve"
@@ -17,14 +17,14 @@ export const Industries: React.FC = () => {
 
         <div
           ref={ref}
-          className={`${styles.grid} ${isVisible ? styles.visible : ''}`}
+          className={`${styles.grid} ${isVisible ? styles.visible : ''} reveal-on-scroll delay-1`}
         >
           {INDUSTRIES.map((industry, index) => (
             <div
               key={industry.id}
               className={`${styles.industryCard} ${
                 industry.isHighlighted ? styles.highlighted : ''
-              } ${isVisible ? 'animate-scale-in' : ''}`}
+              } ${isVisible ? 'animate-scale-in' : ''} reveal-on-scroll delay-${Math.min(3, index % 3 + 1)}`}
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <h3 className={styles.industryName}>{industry.name}</h3>

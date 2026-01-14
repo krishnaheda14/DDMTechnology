@@ -70,6 +70,10 @@
   background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(10, 26, 47, 0.02) 100%);
   border-radius: var(--radius-lg);
   border: 2px solid var(--color-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  align-items: center;
 }
 
 .ctaText {
@@ -77,6 +81,25 @@
   color: var(--color-primary);
   font-weight: var(--font-weight-medium);
   margin: 0;
+}
+
+.jewelryButton {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.jewelryButton:hover {
+  animation: none;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+  }
 }
 
 @keyframes slideUp {
