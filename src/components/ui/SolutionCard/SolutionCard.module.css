@@ -84,6 +84,13 @@
   filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.4));
 }
 
+.iconImage {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  display: block;
+}
+
 .content {
   position: relative;
   z-index: 2;

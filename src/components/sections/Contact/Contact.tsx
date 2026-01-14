@@ -54,8 +54,30 @@ export const Contact: React.FC = () => {
     setSubmitStatus('idle')
 
     try {
-      // Simulate API call - replace with actual submission logic
-      await new Promise((resolve) => setTimeout(resolve, 1200))
+      // Build WhatsApp message with form details
+      const messageLines = [
+        'DDM Infotech - Contact Form',
+        `Name: ${formData.name || '-'} ,`,
+        `Email: ${formData.email || '-'} ,`,
+        `Company: ${formData.company || '-'} ,`,
+        'Message:',
+        formData.message || '-',
+      ]
+
+      const message = messageLines.join('\n')
+      const phone = '+919890000867' // Akash Mirande
+      const waUrl = `https://wa.me/${phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(
+        message
+      )}`
+
+      // Open WhatsApp in new tab/window (mobile will open app)
+      const win = window.open(waUrl, '_blank')
+      if (!win) {
+        // Fallback if blocked
+        window.location.href = waUrl
+      }
+
+      // Consider the interaction successful from UI perspective
       setSubmitStatus('success')
       setFormData({ name: '', email: '', company: '', message: '' })
     } catch (error) {
@@ -189,6 +211,11 @@ export const Contact: React.FC = () => {
               <Button type="submit" variant="primary" size="lg" fullWidth disabled={isSubmitting}>
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </Button>
+
+              <div className={styles.whatsappNote}>
+                By sending, you'll be redirected to WhatsApp to send this message directly to
+                Akash Mirande.
+              </div>
 
               {submitStatus === 'success' && (
                 <div className={styles.successMessage}>

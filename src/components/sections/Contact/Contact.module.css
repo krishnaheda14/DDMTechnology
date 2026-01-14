@@ -194,6 +194,13 @@ a.detailValue:hover {
   font-size: var(--font-size-sm);
 }
 
+.whatsappNote {
+  margin-top: var(--spacing-md);
+  font-size: var(--font-size-sm);
+  color: var(--color-accent-grey);
+  text-align: center;
+}
+
 @media (max-width: 1024px) {
   .content {
     grid-template-columns: 1fr;

@@ -163,8 +163,9 @@
   }
 
   .visual {
-    max-width: 400px;
+    max-width: 100%;
     margin: 0 auto;
+    display: block;
   }
 }
 
@@ -187,7 +188,13 @@
   }
 
   .visual {
-    display: none;
+    display: block;
+    width: 100%;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
   }
 
   .scrollIndicator {

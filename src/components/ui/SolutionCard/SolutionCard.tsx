@@ -9,10 +9,15 @@ export interface SolutionCardProps {
 }
 
 export const SolutionCard: React.FC<SolutionCardProps> = ({ title, subtitle, icon, gradient }) => {
+  const isImage = typeof icon === 'string' && icon.startsWith('/')
   return (
     <div className={styles.card} style={{ background: gradient }}>
       <div className={styles.iconWrapper}>
-        <span className={styles.icon}>{icon}</span>
+        {isImage ? (
+          <img src={icon} alt={`${title} logo`} className={styles.iconImage} />
+        ) : (
+          <span className={styles.icon}>{icon}</span>
+        )}
       </div>
       <div className={styles.content}>
         <h3 className={styles.title}>{title}</h3>
