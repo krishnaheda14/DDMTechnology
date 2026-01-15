@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import styles from './JewelrySystemModal.module.css'
+import jewelleryImg from '../../../../jewellerysystem.png'
 
 export interface JewelrySystemModalProps {
   isOpen: boolean
@@ -34,37 +35,37 @@ export const JewelrySystemModal: React.FC<JewelrySystemModalProps> = ({ isOpen, 
     {
       title: 'Shop Profile Setup',
       description: 'Complete business configuration with GST integration and invoice customization',
-      icon: '🏪',
+      icon: '/assets/solutions/crm.svg',
       details: ['Multi-location support', 'GST compliance', 'Custom invoice prefix', 'Business branding'],
     },
     {
       title: 'Gold Rate Management',
       description: 'Real-time gold rate tracking with automatic purity conversion',
-      icon: '💰',
+      icon: '/assets/solutions/analytics.svg',
       details: ['Live market rates', '24K/22K/18K conversion', 'Rate lock feature', 'Historical tracking'],
     },
     {
       title: 'Sales & Billing',
       description: 'Lightning-fast billing with WhatsApp integration',
-      icon: '📄',
+      icon: '/assets/solutions/order.svg',
       details: ['Quick item search', 'Auto calculations', 'Print & WhatsApp', 'Multiple payment modes'],
     },
     {
       title: 'Inventory Management',
       description: 'Complete stock control with design code tracking',
-      icon: '📦',
+      icon: '/assets/solutions/inventory.svg',
       details: ['Design code system', 'Category management', 'Stone weight tracking', 'Making charges'],
     },
     {
       title: 'Estimate Creation',
       description: 'Professional quotations with one-click conversion to bills',
-      icon: '📋',
+      icon: '/assets/solutions/order.svg',
       details: ['Quick estimates', 'Convert to bill', 'Customer tracking', 'Revision history'],
     },
     {
       title: 'Reports Dashboard',
       description: 'Comprehensive analytics with visual insights',
-      icon: '📊',
+      icon: '/assets/solutions/analytics.svg',
       details: ['Sales overview', 'Stock aging', 'Low/dead stock alerts', 'Revenue charts'],
     },
   ]
@@ -91,7 +92,7 @@ export const JewelrySystemModal: React.FC<JewelrySystemModalProps> = ({ isOpen, 
             <p className={styles.subtitle}>Complete business automation for jewelry retailers</p>
           </div>
           <div className={styles.headerImage}>
-            <img src="/jewellerysystem.png" loading="lazy" alt="Jewelry ERP System" className={styles.systemImage} />
+            <img src={jewelleryImg} loading="lazy" alt="Jewelry ERP System" className={styles.systemImage} />
           </div>
         </div>
 
@@ -112,7 +113,11 @@ export const JewelrySystemModal: React.FC<JewelrySystemModalProps> = ({ isOpen, 
           <div className={styles.featuresGrid}>
             {features.map((feature, index) => (
               <div key={index} className={styles.featureCard}>
-                <div className={styles.featureIcon}>{feature.icon}</div>
+                {typeof feature.icon === 'string' && feature.icon.startsWith('/') ? (
+                  <img src={feature.icon} alt={`${feature.title} icon`} className={styles.featureIconImage} />
+                ) : (
+                  <div className={styles.featureIcon}>{feature.icon}</div>
+                )}
                 <h4 className={styles.featureTitle}>{feature.title}</h4>
                 <p className={styles.featureDescription}>{feature.description}</p>
                 <ul className={styles.featureDetails}>

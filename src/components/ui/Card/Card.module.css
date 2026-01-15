@@ -14,12 +14,13 @@
   border: 2px solid var(--color-secondary);
   box-shadow: var(--shadow-gold);
   position: relative;
+  padding-top: calc(var(--spacing-lg) + 0.5rem);
 }
 
 .featured::before {
   content: 'FEATURED';
   position: absolute;
-  top: var(--spacing-md);
+  top: -0.6rem;
   right: var(--spacing-md);
   background: var(--gradient-gold);
   color: var(--color-primary);

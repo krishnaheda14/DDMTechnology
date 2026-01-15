@@ -204,9 +204,16 @@
 }
 
 .featureIcon {
-  font-size: 3rem;
   margin-bottom: var(--spacing-md);
-  filter: drop-shadow(0 4px 8px rgba(212, 175, 55, 0.4));
+}
+
+.featureIconImage {
+  width: 56px;
+  height: 56px;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.35));
+  margin-bottom: var(--spacing-md);
 }
 
 .featureTitle {
