@@ -28,6 +28,12 @@
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-bold);
   letter-spacing: 0.5px;
+  z-index: 6;
+}
+
+/* Make space for the featured badge so header text doesn't go underneath it */
+.featured .cardHeader {
+  padding-right: calc(var(--spacing-2xl) + 1rem);
 }
 
 .outlined {
