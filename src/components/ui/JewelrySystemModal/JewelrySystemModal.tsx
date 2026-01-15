@@ -91,7 +91,7 @@ export const JewelrySystemModal: React.FC<JewelrySystemModalProps> = ({ isOpen, 
             <p className={styles.subtitle}>Complete business automation for jewelry retailers</p>
           </div>
           <div className={styles.headerImage}>
-            <img src="/jewellerysystem.svg" alt="Jewelry ERP System" className={styles.systemImage} />
+            <img src="jewellerysystem.png" alt="Jewelry ERP System" className={styles.systemImage} />
           </div>
         </div>
 
