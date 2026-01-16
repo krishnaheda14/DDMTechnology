@@ -88,8 +88,8 @@ export const JewelrySystemModal: React.FC<JewelrySystemModalProps> = ({ isOpen, 
 
         <div className={styles.header}>
           <div className={styles.headerContent}>
-            <h2 className={styles.title}>Jewelry ERP System</h2>
-            <p className={styles.subtitle}>Complete business automation for jewelry retailers</p>
+            <h2 className={styles.title}>Jewelry Business Suite</h2>
+            <p className={styles.subtitle}>Simple tools to run your shop — Billing • Inventory • Customers • Reports</p>
           </div>
           <div className={styles.headerImage}>
             <img src={jewelleryImg} loading="lazy" alt="Jewelry ERP System" className={styles.systemImage} />
@@ -133,7 +133,43 @@ export const JewelrySystemModal: React.FC<JewelrySystemModalProps> = ({ isOpen, 
         <div className={styles.ctaSection}>
           <h3 className={styles.ctaTitle}>Ready to Transform Your Business?</h3>
           <p className={styles.ctaText}>Schedule a free demo and see how our system can automate your jewelry retail operations</p>
-          <button className={styles.ctaButton} onClick={onClose}>
+          <button
+            className={styles.ctaButton}
+            onClick={() => {
+              // Ask user for a few optional details, then redirect to WhatsApp (iOS-safe)
+              const name = window.prompt('Please enter your name for the demo request (optional)') || ''
+              const phone = window.prompt('Please enter your phone number (optional)') || ''
+              const pref = window.prompt('Preferred demo date/time (optional)') || ''
+
+              const lines = [
+                'Demo Request - Jewelry ERP System',
+                name ? `Name: ${name}` : '',
+                phone ? `Phone: ${phone}` : '',
+                pref ? `Preferred time: ${pref}` : '',
+                '',
+                'Please contact me to schedule the demo.'
+              ].filter(Boolean).join('\n')
+
+              const phoneNumber = '+919890000867'
+              const waUrl = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(lines)}`
+
+              // iOS-safe redirect (same logic used in contact form)
+              const isIOS = (() => {
+                const ua = navigator.userAgent || ''
+                const platform = navigator.platform || ''
+                const iOSPlatform = /iPad|iPhone|iPod/.test(platform)
+                const iPadOS = ua.includes('Macintosh') && 'ontouchend' in document
+                return iOSPlatform || iPadOS
+              })()
+
+              if (isIOS) {
+                window.location.href = waUrl
+              } else {
+                const win = window.open(waUrl, '_blank')
+                if (!win) window.location.href = waUrl
+              }
+            }}
+          >
             Schedule Demo
           </button>
         </div>

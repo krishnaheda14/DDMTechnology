@@ -16,37 +16,44 @@ export const Products: React.FC = () => {
       <div className={styles.container}>
         <SectionTitle
           title="Business Operating Systems"
-          subtitle="Intelligent solutions that transform how your business operates"
+          subtitle="Clear, reliable systems for day-to-day operations"
         />
 
         <div
           ref={ref}
           className={`${styles.grid} ${isVisible ? styles.visible : ''}`}
         >
-          {PRODUCTS.map((product, index) => (
-            <div
-              key={product.id}
-              className={`${styles.productCard} ${isVisible ? 'animate-slide-up' : ''}`}
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <Card variant={product.isFeatured ? 'featured' : 'default'} hoverable>
-                <CardHeader>
-                  <h3 className={styles.productTitle}>{product.title}</h3>
-                </CardHeader>
-                <CardBody>
-                  <p className={styles.productDescription}>{product.description}</p>
-                  <ul className={styles.featureList}>
-                    {product.features.map((feature) => (
-                      <li key={feature} className={styles.feature}>
-                        <span className={styles.checkmark}>✓</span>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </CardBody>
-              </Card>
-            </div>
-          ))}
+          {PRODUCTS.map((product, index) => {
+            const isJewelry = product.id === 'jewelry-suite'
+            return (
+              <div
+                key={product.id}
+                className={`${styles.productCard} ${isVisible ? 'animate-slide-up' : ''} ${isJewelry ? styles.clickable : ''}`}
+                style={{ animationDelay: `${index * 100}ms` }}
+                onClick={isJewelry ? () => setIsModalOpen(true) : undefined}
+                role={isJewelry ? 'button' : undefined}
+                tabIndex={isJewelry ? 0 : undefined}
+                onKeyDown={isJewelry ? (e) => { if (e.key === 'Enter' || e.key === ' ') setIsModalOpen(true) } : undefined}
+              >
+                <Card variant={product.isFeatured ? 'featured' : 'default'} hoverable>
+                  <CardHeader>
+                    <h3 className={styles.productTitle}>{product.title}</h3>
+                  </CardHeader>
+                  <CardBody>
+                    <p className={styles.productDescription}>{product.description}</p>
+                    <ul className={styles.featureList}>
+                      {product.features.map((feature) => (
+                        <li key={feature} className={styles.feature}>
+                          <span className={styles.checkmark}>✓</span>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </CardBody>
+                </Card>
+              </div>
+            )
+          })}
         </div>
 
         <div className={styles.cta}>

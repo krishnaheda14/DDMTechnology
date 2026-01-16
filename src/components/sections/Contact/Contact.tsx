@@ -70,11 +70,26 @@ export const Contact: React.FC = () => {
         message
       )}`
 
-      // Open WhatsApp in new tab/window (mobile will open app)
-      const win = window.open(waUrl, '_blank')
-      if (!win) {
-        // Fallback if blocked
+      // On iOS, using window.open can leave the original tab as about:blank
+      // Use a direct navigation for iOS devices to avoid about:blank when returning.
+      const isIOS = (() => {
+        // iPadOS detection: iPad on desktop UA may include Macintosh, so check touch support
+        const ua = navigator.userAgent || ''
+        const platform = navigator.platform || ''
+        const iOSPlatform = /iPad|iPhone|iPod/.test(platform)
+        const iPadOS = ua.includes('Macintosh') && 'ontouchend' in document
+        return iOSPlatform || iPadOS
+      })()
+
+      if (isIOS) {
         window.location.href = waUrl
+      } else {
+        // Open WhatsApp in new tab/window (mobile will open app)
+        const win = window.open(waUrl, '_blank')
+        if (!win) {
+          // Fallback if blocked
+          window.location.href = waUrl
+        }
       }
 
       // Consider the interaction successful from UI perspective

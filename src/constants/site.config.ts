@@ -3,7 +3,7 @@ export const SITE_CONFIG = {
   tagline: 'Automating Growth',
   description:
     'Intelligent Systems for Scalable Businesses. High-performance software that automates operations, improves decision-making, and scales businesses with precision.',
-  email: 'info@ddminfotech.com',
+  email: 'contact@ddminfotechnology.com',
   location: 'India',
   social: {
     linkedin: '',
