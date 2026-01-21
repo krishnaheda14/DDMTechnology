@@ -1,15 +1,52 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './Products.module.css'
 import { SectionTitle } from '@components/ui/SectionTitle'
 import { Card, CardHeader, CardBody } from '@components/ui/Card'
 import { PRODUCTS } from '@constants/products.data'
+import { PRODUCT_DETAILS } from '@constants/product-details.data'
 import { useScrollAnimation } from '@hooks/useScrollAnimation'
-import { JewelrySystemModal } from '@components/ui/JewelrySystemModal'
 import { Button } from '@components/ui/Button'
+import { ProductModal } from '@components/ui/ProductModal'
 
-export const Products: React.FC = () => {
+interface ProductsProps {
+  isJewelryModalOpen: boolean
+  setIsJewelryModalOpen: (isOpen: boolean) => void
+  closeModalSignal?: number
+}
+
+export const Products: React.FC<ProductsProps> = ({ 
+  isJewelryModalOpen, 
+  setIsJewelryModalOpen,
+  closeModalSignal
+}) => {
   const { ref, isVisible } = useScrollAnimation()
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [activeProductId, setActiveProductId] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (isJewelryModalOpen && activeProductId !== 'jewelry-suite') {
+      setActiveProductId('jewelry-suite')
+    }
+  }, [isJewelryModalOpen, activeProductId])
+
+  useEffect(() => {
+    if (closeModalSignal) {
+      handleCloseModal()
+    }
+  }, [closeModalSignal])
+
+  const handleProductClick = (productId: string) => {
+    setActiveProductId(productId)
+    if (productId === 'jewelry-suite') {
+      setIsJewelryModalOpen(true)
+    }
+  }
+
+  const handleCloseModal = () => {
+    setActiveProductId(null)
+    setIsJewelryModalOpen(false)
+  }
+
+  const activeProduct = activeProductId ? PRODUCT_DETAILS[activeProductId] : null
 
   return (
     <section className={styles.products} id="products">
@@ -24,16 +61,15 @@ export const Products: React.FC = () => {
           className={`${styles.grid} ${isVisible ? styles.visible : ''}`}
         >
           {PRODUCTS.map((product, index) => {
-            const isJewelry = product.id === 'jewelry-suite'
             return (
               <div
                 key={product.id}
-                className={`${styles.productCard} ${isVisible ? 'animate-slide-up' : ''} ${isJewelry ? styles.clickable : ''}`}
+                className={`${styles.productCard} ${isVisible ? 'animate-slide-up' : ''} ${styles.clickable}`}
                 style={{ animationDelay: `${index * 100}ms` }}
-                onClick={isJewelry ? () => setIsModalOpen(true) : undefined}
-                role={isJewelry ? 'button' : undefined}
-                tabIndex={isJewelry ? 0 : undefined}
-                onKeyDown={isJewelry ? (e) => { if (e.key === 'Enter' || e.key === ' ') setIsModalOpen(true) } : undefined}
+                onClick={() => handleProductClick(product.id)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') handleProductClick(product.id) }}
               >
                 <Card variant={product.isFeatured ? 'featured' : 'default'} hoverable>
                   <CardHeader>
@@ -58,21 +94,27 @@ export const Products: React.FC = () => {
 
         <div className={styles.cta}>
           <p className={styles.ctaText}>
-            Need something different? We build custom solutions tailored to your unique business
-            needs.
+            Have specific needs? We build custom solutions for your business.
           </p>
           <Button
-            onClick={() => setIsModalOpen(true)}
+            onClick={() => handleProductClick('jewelry-suite')}
             variant="primary"
             size="lg"
             className={styles.jewelryButton}
           >
-            View Our Jewelry ERP System Features
+            Explore Jewelry Business Suite
           </Button>
         </div>
       </div>
 
-      <JewelrySystemModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      {activeProduct && activeProductId && (
+        <ProductModal
+          isOpen={true}
+          onClose={handleCloseModal}
+          productId={activeProductId}
+          {...activeProduct}
+        />
+      )}
     </section>
   )
 }

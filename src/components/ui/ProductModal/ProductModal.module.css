@@ -89,14 +89,6 @@
 }
 
 .headerImage {
-  animation: slideInRight 0.6s ease-out 0.2s both;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  border: 2px solid rgba(212, 175, 55, 0.2);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-}
-
-.headerImage {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -114,6 +106,7 @@
   display: block;
   object-fit: contain;
   transition: transform var(--transition-base);
+  cursor: zoom-in;
 }
 
 .systemImage:hover {
@@ -155,12 +148,24 @@
   animation: fadeInUp 0.5s ease-out both;
 }
 
-.uniqueItem:nth-child(1) { animation-delay: 0.1s; }
-.uniqueItem:nth-child(2) { animation-delay: 0.15s; }
-.uniqueItem:nth-child(3) { animation-delay: 0.2s; }
-.uniqueItem:nth-child(4) { animation-delay: 0.25s; }
-.uniqueItem:nth-child(5) { animation-delay: 0.3s; }
-.uniqueItem:nth-child(6) { animation-delay: 0.35s; }
+.uniqueItem:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.uniqueItem:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.uniqueItem:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.uniqueItem:nth-child(4) {
+  animation-delay: 0.25s;
+}
+.uniqueItem:nth-child(5) {
+  animation-delay: 0.3s;
+}
+.uniqueItem:nth-child(6) {
+  animation-delay: 0.35s;
+}
 
 .uniqueItem:hover {
   background: rgba(255, 255, 255, 0.08);
@@ -193,12 +198,24 @@
   animation: scaleIn 0.5s ease-out both;
 }
 
-.featureCard:nth-child(1) { animation-delay: 0.5s; }
-.featureCard:nth-child(2) { animation-delay: 0.55s; }
-.featureCard:nth-child(3) { animation-delay: 0.6s; }
-.featureCard:nth-child(4) { animation-delay: 0.65s; }
-.featureCard:nth-child(5) { animation-delay: 0.7s; }
-.featureCard:nth-child(6) { animation-delay: 0.75s; }
+.featureCard:nth-child(1) {
+  animation-delay: 0.5s;
+}
+.featureCard:nth-child(2) {
+  animation-delay: 0.55s;
+}
+.featureCard:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.featureCard:nth-child(4) {
+  animation-delay: 0.65s;
+}
+.featureCard:nth-child(5) {
+  animation-delay: 0.7s;
+}
+.featureCard:nth-child(6) {
+  animation-delay: 0.75s;
+}
 
 .featureCard:hover {
   transform: translateY(-8px);
@@ -216,7 +233,7 @@
   height: 56px;
   display: block;
   object-fit: contain;
-  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.35));
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.35));
   margin-bottom: var(--spacing-md);
 }
 
@@ -299,6 +316,57 @@
 .ctaButton:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(212, 175, 55, 0.5);
+}
+
+.zoomOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2xl);
+  animation: fadeIn 0.3s ease-out;
+  cursor: zoom-out;
+}
+
+.zoomClose {
+  position: fixed;
+  top: var(--spacing-xl);
+  right: var(--spacing-xl);
+  background: rgba(212, 175, 55, 0.9);
+  border: 2px solid var(--color-secondary);
+  color: var(--color-primary);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  z-index: 2001;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+.zoomClose:hover {
+  transform: rotate(90deg) scale(1.1);
+  background: var(--color-secondary);
+}
+
+.zoomedImage {
+  max-width: 95%;
+  max-height: 95%;
+  object-fit: contain;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+  animation: scaleIn 0.4s ease-out;
 }
 
 @keyframes fadeIn {
@@ -424,5 +492,11 @@
 
   .featuresGrid {
     grid-template-columns: 1fr;
+  }
+
+  .zoomClose {
+    width: 48px;
+    height: 48px;
+    font-size: 28px;
   }
 }

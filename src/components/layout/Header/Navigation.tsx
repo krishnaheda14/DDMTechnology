@@ -3,11 +3,16 @@ import styles from './Navigation.module.css'
 import { SITE_CONFIG } from '@constants/site.config'
 import { scrollToSection } from '@utils/scroll'
 
-export const Navigation: React.FC = () => {
+interface NavigationProps {
+  onNavClick?: () => void
+}
+
+export const Navigation: React.FC<NavigationProps> = ({ onNavClick }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const handleNavClick = (href: string) => {
     const sectionId = href.replace('#', '')
+    onNavClick?.()
     scrollToSection(sectionId)
     setIsOpen(false)
   }

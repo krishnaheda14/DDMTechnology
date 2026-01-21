@@ -5,7 +5,11 @@ import { Navigation } from './Navigation'
 import { Button } from '@components/ui/Button'
 import { scrollToSection } from '@utils/scroll'
 
-export const Header: React.FC = () => {
+interface HeaderProps {
+  onNavClick?: () => void
+}
+
+export const Header: React.FC<HeaderProps> = ({ onNavClick }) => {
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
@@ -18,6 +22,7 @@ export const Header: React.FC = () => {
   }, [])
 
   const handleContactClick = () => {
+    onNavClick?.()
     scrollToSection('contact')
   }
 
@@ -28,7 +33,7 @@ export const Header: React.FC = () => {
           <Logo size="md" variant="light" />
         </div>
 
-        <Navigation />
+        <Navigation onNavClick={onNavClick} />
 
         <div className={styles.cta}>
           <Button variant="primary" size="sm" onClick={handleContactClick}>

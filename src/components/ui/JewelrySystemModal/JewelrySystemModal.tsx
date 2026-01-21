@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import styles from './JewelrySystemModal.module.css'
-import jewelleryImg from '../../../../jewellerysystem.png'
 
 export interface JewelrySystemModalProps {
   isOpen: boolean
@@ -92,7 +91,7 @@ export const JewelrySystemModal: React.FC<JewelrySystemModalProps> = ({ isOpen, 
             <p className={styles.subtitle}>Simple tools to run your shop — Billing • Inventory • Customers • Reports</p>
           </div>
           <div className={styles.headerImage}>
-            <img src={jewelleryImg} loading="lazy" alt="Jewelry ERP System" className={styles.systemImage} />
+            <img src="/jewellerysystem.png" alt="Jewelry ERP System" className={styles.systemImage} />
           </div>
         </div>
 
