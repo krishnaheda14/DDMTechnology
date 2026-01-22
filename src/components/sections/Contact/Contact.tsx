@@ -150,9 +150,9 @@ export const Contact: React.FC = () => {
               <div className={styles.detailItem}>
                 <div className={styles.detailLabel}>Secondary Contact</div>
                 <div className={styles.detailValue}>
-                  Krishna Heda
+                  Naman Chandak
                   <br />
-                  <a href="tel:+919922253469" className={styles.detailValue} aria-label="Call Krishna Heda">+91 99222 53469</a>
+                  <a href="tel:+917058420660" className={styles.detailValue} aria-label="Call Krishna Heda">+91 99222 53469</a>
                 </div>
               </div>
             </div>
