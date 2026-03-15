@@ -1,5 +1,5 @@
 export const SITE_CONFIG = {
-  name: 'DDM Infotech',
+  name: 'Bizmation',
   tagline: 'Automating Growth',
   description:
     'Intelligent Systems for Scalable Businesses. High-performance software that automates operations, improves decision-making, and scales businesses with precision.',

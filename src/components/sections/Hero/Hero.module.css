@@ -61,8 +61,11 @@
   font-size: clamp(var(--font-size-4xl), 6vw, var(--font-size-6xl));
   font-family: var(--font-heading);
   font-weight: var(--font-weight-bold);
-  line-height: 1.1;
+  line-height: 1.2;
   margin-bottom: var(--spacing-md);
+  max-width: 60ch;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .highlight {
@@ -77,8 +80,8 @@
   font-size: clamp(var(--font-size-lg), 2.5vw, var(--font-size-2xl));
   color: var(--color-accent-grey);
   margin-bottom: var(--spacing-xl);
-  line-height: 1.6;
-  max-width: 600px;
+  line-height: 1.75;
+  max-width: 60ch;
 }
 
 .cta {
@@ -88,7 +91,7 @@
   margin-bottom: var(--spacing-xl);
 }
 
-.cta button {
+.cta button{
   color: var(--color-white);
 }
 
@@ -179,6 +182,11 @@
     padding: calc(80px + var(--spacing-2xl)) var(--spacing-md) var(--spacing-2xl);
     min-height: auto;
   }
+  .title,
+.subtitle {
+  max-width: 100%;
+  line-height: 1.4;
+}
 
   .badges {
     gap: var(--spacing-xs);

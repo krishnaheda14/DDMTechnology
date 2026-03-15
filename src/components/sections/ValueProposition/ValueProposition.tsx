@@ -11,7 +11,7 @@ export const ValueProposition: React.FC = () => {
     <section className={`${styles.value} reveal-on-scroll`} id="value">
       <div className={styles.container}>
         <SectionTitle
-          title="Why DDM Infotech"
+          title="Why Bizmation"
           subtitle="Building software with precision, accountability, and excellence"
         />
 
@@ -34,12 +34,12 @@ export const ValueProposition: React.FC = () => {
         <div className={`${styles.founderStatement} reveal-on-scroll delay-2`}>
           <div className={styles.quote}>
             <p className={styles.quoteText}>
-              "At DDM Infotech, we don't just write code , we architect growth systems. Every
+              "At Bizmation, we don't just write code , we architect growth systems. Every
               solution we build is designed with the founder's mindset: scalable, measurable, and
               built to compound over time."
             </p>
             <div className={styles.quoteAuthor}>
-              <div className={styles.authorName}>- DDM Infotech Leadership</div>
+              <div className={styles.authorName}>- Bizmation Leadership</div>
               <div className={styles.authorTitle}>Founder-Led Development</div>
             </div>
           </div>

@@ -17,7 +17,7 @@ export const Hero: React.FC = () => {
             <TrustBadge text="Scalable by Design" />
           </div>
 
-          <div className={styles.brandName}>DDM INFOTECH</div>
+          <div className={styles.brandName}>Bizmation</div>
           <h1 className={styles.title}>
             <span className={styles.highlight}>Automating Growth</span>
           </h1>

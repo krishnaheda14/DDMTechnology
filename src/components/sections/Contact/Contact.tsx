@@ -56,7 +56,7 @@ export const Contact: React.FC = () => {
     try {
       // Build WhatsApp message with form details
       const messageLines = [
-        'DDM Infotech - Contact Form',
+        'Bizmation - Contact Form',
         `Name: ${formData.name || '-'} ,`,
         `Email: ${formData.email || '-'} ,`,
         `Company: ${formData.company || '-'} ,`,

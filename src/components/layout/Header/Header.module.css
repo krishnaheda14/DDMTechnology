@@ -3,16 +3,36 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: var(--color-primary);
+  background: transparent;
   z-index: var(--z-fixed);
-  transition: all var(--transition-base);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background-color var(--nav-transition, 220ms), box-shadow var(--nav-transition, 220ms), padding var(--nav-transition, 220ms), transform var(--nav-transition, 220ms);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
+:root {
+  --nav-transition: 220ms;
+  --nav-ease: cubic-bezier(.2,.9,.2,1);
+}
+
+/* Glass / compact style when scrolled */
 .scrolled {
   box-shadow: var(--shadow-lg);
-  background-color: rgba(10, 26, 47, 0.95);
-  backdrop-filter: blur(10px);
+  background-color: rgba(6, 12, 24, 0.6);
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+  transform: translateZ(0);
+}
+
+/* Logo micro-scale when header is compact/scrolled (scale the wrapper) */
+.logoWrapper {
+  flex-shrink: 0;
+  transition: transform var(--nav-transition) var(--nav-ease);
+  transform-origin: left center;
+}
+
+.scrolled .logoWrapper {
+  transform: scale(0.96);
 }
 
 .container {
@@ -23,11 +43,16 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--spacing-lg);
+  transition: padding var(--transition-base), gap var(--transition-base);
 }
 
-.logoWrapper {
-  flex-shrink: 0;
+/* Compact header adjustments */
+.header.scrolled .container {
+  padding: calc(var(--spacing-sm) + 2px) var(--spacing-lg);
+  gap: calc(var(--spacing-md) - 2px);
 }
+
+/* (moved above) */
 
 .cta {
   flex-shrink: 0;
