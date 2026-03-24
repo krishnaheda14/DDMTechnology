@@ -13,7 +13,7 @@ export const Approach: React.FC = () => {
         />
 
         <div className={styles.timeline}>
-          {PROCESS_STEPS.map((step) => (
+          {PROCESS_STEPS.map((step, index) => (
             <div
               key={step.id}
               className={styles.step}
