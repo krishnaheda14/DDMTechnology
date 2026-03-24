@@ -2,28 +2,21 @@ import React from 'react'
 import styles from './Clients.module.css'
 import { SectionTitle } from '@components/ui/SectionTitle'
 import { CLIENT_TYPES } from '@constants/content.data'
-import { useScrollAnimation } from '@hooks/useScrollAnimation'
 
 export const Clients: React.FC = () => {
-  const { ref, isVisible } = useScrollAnimation()
-
   return (
-    <section className={`${styles.clients} reveal-on-scroll`} id="clients">
+    <section className={styles.clients} id="clients">
       <div className={styles.container}>
         <SectionTitle
           title="Who We Work With"
           subtitle="Partnering with ambitious businesses ready to scale"
         />
 
-        <div
-          ref={ref}
-          className={`${styles.grid} ${isVisible ? styles.visible : ''} reveal-on-scroll delay-1`}
-        >
-          {CLIENT_TYPES.map((client, index) => (
+        <div className={styles.grid}>
+          {CLIENT_TYPES.map((client) => (
             <div
               key={client.id}
-              className={`${styles.clientCard} ${isVisible ? 'animate-slide-up' : ''} reveal-on-scroll delay-${Math.min(3, (index % 3) + 1)}`}
-              style={{ animationDelay: `${index * 100}ms` }}
+              className={styles.clientCard}
             >
               <h3 className={styles.clientType}>{client.type}</h3>
               <p className={styles.clientDescription}>{client.description}</p>
@@ -31,7 +24,7 @@ export const Clients: React.FC = () => {
           ))}
         </div>
 
-        <div className={`${styles.trustSection} reveal-on-scroll delay-2`}>
+        <div className={styles.trustSection}>
           <div className={styles.trustHeading}>
             <h3 className={styles.trustTitle}>Built on Trust & Excellence</h3>
             <p className={styles.trustSubtitle}>

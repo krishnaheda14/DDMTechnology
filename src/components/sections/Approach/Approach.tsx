@@ -2,28 +2,21 @@ import React from 'react'
 import styles from './Approach.module.css'
 import { SectionTitle } from '@components/ui/SectionTitle'
 import { PROCESS_STEPS } from '@constants/content.data'
-import { useScrollAnimation } from '@hooks/useScrollAnimation'
 
 export const Approach: React.FC = () => {
-  const { ref, isVisible } = useScrollAnimation()
-
   return (
-    <section className={`${styles.approach} reveal-on-scroll`} id="approach">
+    <section className={styles.approach} id="approach">
       <div className={styles.container}>
         <SectionTitle
           title="Our Approach"
           subtitle="A proven process for delivering exceptional business software"
         />
 
-        <div
-          ref={ref}
-          className={`${styles.timeline} ${isVisible ? styles.visible : ''} reveal-on-scroll delay-1`}
-        >
-          {PROCESS_STEPS.map((step, index) => (
+        <div className={styles.timeline}>
+          {PROCESS_STEPS.map((step) => (
             <div
               key={step.id}
-              className={`${styles.step} ${isVisible ? 'animate-slide-up' : ''} reveal-on-scroll delay-${Math.min(3, (index % 3) + 1)}`}
-              style={{ animationDelay: `${index * 200}ms` }}
+              className={styles.step}
             >
               <div className={styles.stepNumber}>{step.step}</div>
               <div className={styles.stepContent}>
@@ -37,7 +30,7 @@ export const Approach: React.FC = () => {
           ))}
         </div>
 
-        <div className={`${styles.philosophy} reveal-on-scroll delay-2`}>
+        <div className={styles.philosophy}>
           <div className={styles.philosophyContent}>
             <h3 className={styles.philosophyTitle}>Technology Philosophy</h3>
             <p className={styles.philosophyText}>
