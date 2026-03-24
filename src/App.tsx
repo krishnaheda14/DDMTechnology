@@ -3,6 +3,7 @@ import { Header } from '@components/layout/Header'
 import { Footer } from '@components/layout/Footer'
 import { Hero } from '@components/sections/Hero'
 import { Products } from '@components/sections/Products'
+import { Testimonials } from '@components/sections/Testimonials'
 import { Industries } from '@components/sections/Industries'
 import { ValueProposition } from '@components/sections/ValueProposition'
 import { Approach } from '@components/sections/Approach'
@@ -62,6 +63,7 @@ const App: React.FC = () => {
           setIsJewelryModalOpen={setIsJewelryModalOpen}
           closeModalSignal={closeModalSignal}
         />
+          <Testimonials />
         <Industries />
         <ValueProposition />
         <Approach />

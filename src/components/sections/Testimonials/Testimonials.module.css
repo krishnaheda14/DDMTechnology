@@ -1,0 +1,250 @@
+.metrics {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-charcoal) 100%);
+  padding: var(--spacing-3xl) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.metrics::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at 20% 50%,
+    rgba(212, 175, 55, 0.1) 0%,
+    transparent 50%
+  );
+  pointer-events: none;
+}
+
+.container {
+  max-width: var(--container-2xl);
+  margin: 0 auto;
+  padding: 0 var(--spacing-xl);
+  position: relative;
+  z-index: 1;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--spacing-2xl);
+}
+
+.metricCard {
+  text-align: center;
+  padding: var(--spacing-lg);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(10px);
+  transition: all var(--transition-base);
+}
+
+.metricCard:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--color-secondary);
+  transform: translateY(-5px);
+}
+
+.metricValue {
+  font-size: var(--font-size-4xl);
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-secondary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.metricLabel {
+  font-size: var(--font-size-sm);
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: var(--font-weight-medium);
+}
+
+.testimonials {
+  padding: var(--spacing-4xl) 0;
+  background-color: var(--color-white);
+}
+
+.testimonialGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--spacing-2xl);
+  margin-bottom: var(--spacing-4xl);
+}
+
+.testimonialCard {
+  background: var(--color-white);
+  border: 2px solid var(--color-accent-grey);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-2xl);
+  transition: all var(--transition-base);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonialCard:hover {
+  border-color: var(--color-secondary);
+  box-shadow: 0 20px 40px rgba(212, 175, 55, 0.15);
+  transform: translateY(-10px);
+}
+
+.stars {
+  display: flex;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-md);
+}
+
+.star {
+  font-size: var(--font-size-lg);
+  color: var(--color-accent-grey);
+}
+
+.star.filled {
+  color: var(--color-secondary);
+}
+
+.testimonialText {
+  font-size: var(--font-size-base);
+  color: var(--color-accent-grey);
+  line-height: 1.8;
+  margin-bottom: var(--spacing-lg);
+  font-style: italic;
+  flex-grow: 1;
+}
+
+.clientInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.clientDetails {
+  flex: 1;
+}
+
+.clientName {
+  font-size: var(--font-size-base);
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin: 0 0 2px 0;
+}
+
+.clientRole {
+  font-size: var(--font-size-sm);
+  color: var(--color-secondary);
+  font-weight: var(--font-weight-medium);
+  margin: 0 0 2px 0;
+}
+
+.clientCompany {
+  font-size: var(--font-size-sm);
+  color: var(--color-accent-grey);
+  margin: 0;
+}
+
+.metricBadge {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(10, 26, 47, 0.05) 100%);
+  border-left: 3px solid var(--color-secondary);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: 4px;
+  font-size: var(--font-size-sm);
+  display: inline-block;
+}
+
+.trustBox {
+  background: linear-gradient(135deg, rgba(10, 26, 47, 0.05) 0%, rgba(212, 175, 55, 0.05) 100%);
+  border: 2px solid var(--color-secondary);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-3xl);
+  margin-top: var(--spacing-3xl);
+}
+
+.trustContent {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.trustTitle {
+  font-size: var(--font-size-3xl);
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  text-align: center;
+  margin-bottom: var(--spacing-3xl);
+}
+
+.trustFeatures {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-2xl);
+}
+
+.trustFeature {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.trustCheckmark {
+  width: 40px;
+  height: 40px;
+  background: var(--color-secondary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+  flex-shrink: 0;
+}
+
+.trustFeature h4 {
+  font-size: var(--font-size-lg);
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin: 0 0 4px 0;
+}
+
+.trustFeature p {
+  font-size: var(--font-size-sm);
+  color: var(--color-accent-grey);
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .metricsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  .metricValue {
+    font-size: var(--font-size-3xl);
+  }
+
+  .testimonialGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .trustBox {
+    padding: var(--spacing-2xl);
+  }
+
+  .trustTitle {
+    font-size: var(--font-size-2xl);
+  }
+
+  .trustFeatures {
+    grid-template-columns: 1fr;
+  }
+}
