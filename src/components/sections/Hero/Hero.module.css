@@ -24,6 +24,30 @@
   pointer-events: none;
 }
 
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 560px;
+  height: 560px;
+  right: -120px;
+  top: -120px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.16) 0%, rgba(212, 175, 55, 0) 70%);
+  filter: blur(8px);
+  pointer-events: none;
+  animation: glowFloat 7s ease-in-out infinite;
+}
+
+@keyframes glowFloat {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(12px) translateX(-8px);
+  }
+}
+
 .container {
   max-width: var(--container-2xl);
   margin: 0 auto;
@@ -181,6 +205,13 @@
   .hero {
     padding: calc(80px + var(--spacing-2xl)) var(--spacing-md) var(--spacing-2xl);
     min-height: auto;
+  }
+
+  .hero::after {
+    width: 340px;
+    height: 340px;
+    top: -90px;
+    right: -90px;
   }
   .title,
 .subtitle {

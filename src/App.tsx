@@ -4,13 +4,16 @@ import { Footer } from '@components/layout/Footer'
 import { Hero } from '@components/sections/Hero'
 import { Products } from '@components/sections/Products'
 import { Testimonials } from '@components/sections/Testimonials'
+import { ContentHub } from '@components/sections/ContentHub'
 import { GrowthCalculator } from '@components/sections/GrowthCalculator'
+import { TrustCenter } from '@components/sections/TrustCenter'
 import { Industries } from '@components/sections/Industries'
 import { ValueProposition } from '@components/sections/ValueProposition'
 import { Approach } from '@components/sections/Approach'
 import { Clients } from '@components/sections/Clients'
 import { Contact } from '@components/sections/Contact'
 import { JewelrySystemModal } from '@components/ui/JewelrySystemModal'
+import { StickyMobileCTA } from '@components/ui/StickyMobileCTA'
 import { addRevealAnimation, observeElements } from '@utils/animations'
 import '@styles/globals.css'
 import '@styles/animations.css'
@@ -65,7 +68,9 @@ const App: React.FC = () => {
           closeModalSignal={closeModalSignal}
         />
         <Testimonials />
+        <ContentHub />
         <GrowthCalculator />
+        <TrustCenter />
         <Industries />
         <ValueProposition />
         <Approach />
@@ -73,6 +78,7 @@ const App: React.FC = () => {
         <Contact />
       </main>
       <Footer />
+      <StickyMobileCTA />
       <JewelrySystemModal 
         isOpen={isJewelryModalOpen} 
         onClose={() => setIsJewelryModalOpen(false)} 

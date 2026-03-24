@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './Navigation.module.css'
 import { SITE_CONFIG } from '@constants/site.config'
 import { scrollToSection } from '@utils/scroll'
@@ -9,6 +9,13 @@ interface NavigationProps {
 
 export const Navigation: React.FC<NavigationProps> = ({ onNavClick }) => {
   const [isOpen, setIsOpen] = useState(false)
+
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : ''
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isOpen])
 
   const handleNavClick = (href: string) => {
     const sectionId = href.replace('#', '')
@@ -22,6 +29,7 @@ export const Navigation: React.FC<NavigationProps> = ({ onNavClick }) => {
       <button
         className={styles.mobileToggle}
         onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
         aria-label="Toggle navigation"
       >
         <span className={`${styles.hamburger} ${isOpen ? styles.open : ''}`}>
@@ -45,6 +53,7 @@ export const Navigation: React.FC<NavigationProps> = ({ onNavClick }) => {
           ))}
         </ul>
       </nav>
+      {isOpen && <button className={styles.backdrop} onClick={() => setIsOpen(false)} aria-label="Close navigation" />}
     </>
   )
 }

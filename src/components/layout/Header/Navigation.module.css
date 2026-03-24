@@ -39,6 +39,10 @@
   display: flex;
 }
 
+.backdrop {
+  display: none;
+}
+
 .navList {
   display: flex;
   align-items: center;
@@ -84,6 +88,15 @@
     display: block;
   }
 
+  .backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(6, 12, 24, 0.45);
+    border: none;
+    z-index: calc(var(--z-fixed) - 1);
+  }
+
   .nav {
     position: fixed;
     top: 80px;
@@ -111,5 +124,6 @@
     font-size: var(--font-size-lg);
     width: 100%;
     text-align: left;
+    padding: 10px 0;
   }
 }
