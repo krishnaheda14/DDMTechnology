@@ -22,13 +22,6 @@
   border: 2px solid var(--color-accent-grey);
   border-radius: var(--radius-lg);
   transition: all var(--transition-base);
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-.visible .clientCard {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .clientCard:hover {

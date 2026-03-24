@@ -42,13 +42,6 @@
   border: 1px solid rgba(212, 175, 55, 0.2);
   border-radius: var(--radius-lg);
   transition: all var(--transition-base);
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-.visible .pillar {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .pillar:hover {
