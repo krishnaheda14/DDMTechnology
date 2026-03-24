@@ -48,8 +48,8 @@
 
 .logoImage {
   display: block;
-  width: 48px;
-  height: 48px;
+  width: 53px;
+  height: 53px;
   object-fit: contain;
 }
 
@@ -145,16 +145,16 @@
 }
 
 .sm .logoImage {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
 }
 
 .md .logoImage {
-  width: 48px;
-  height: 48px;
+  width: 53px;
+  height: 53px;
 }
 
 .lg .logoImage {
-  width: 64px;
-  height: 64px;
+  width: 70px;
+  height: 70px;
 }
