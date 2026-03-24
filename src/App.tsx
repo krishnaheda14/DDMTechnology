@@ -4,6 +4,7 @@ import { Footer } from '@components/layout/Footer'
 import { Hero } from '@components/sections/Hero'
 import { Products } from '@components/sections/Products'
 import { Testimonials } from '@components/sections/Testimonials'
+import { GrowthCalculator } from '@components/sections/GrowthCalculator'
 import { Industries } from '@components/sections/Industries'
 import { ValueProposition } from '@components/sections/ValueProposition'
 import { Approach } from '@components/sections/Approach'
@@ -63,7 +64,8 @@ const App: React.FC = () => {
           setIsJewelryModalOpen={setIsJewelryModalOpen}
           closeModalSignal={closeModalSignal}
         />
-          <Testimonials />
+        <Testimonials />
+        <GrowthCalculator />
         <Industries />
         <ValueProposition />
         <Approach />

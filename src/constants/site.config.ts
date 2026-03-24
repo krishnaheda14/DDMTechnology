@@ -12,6 +12,7 @@ export const SITE_CONFIG = {
   },
   navigation: [
     { label: 'Solutions', href: '#products' },
+    { label: 'ROI Calculator', href: '#calculator' },
     { label: 'Industries', href: '#industries' },
     { label: 'Why Us', href: '#value' },
     { label: 'Approach', href: '#approach' },
