@@ -17,7 +17,7 @@ export const Logo: React.FC<LogoProps> = ({ size = 'md', variant = 'dark' }) => 
   return (
     <div className={`${styles.logo} ${styles[size]} ${styles[variant]} ${mounted ? styles.animate : ''}`}>
       <div className={styles.logoIcon}>
-        <img src="/logo.png" alt="Bizmation" className={styles.logoImage} />
+        <img src="/logo.jpeg" alt="Bizmation" className={styles.logoImage} />
       </div>
       <div className={styles.logoText}>
         <div className={styles.companyName}>Bizmation</div>
