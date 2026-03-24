@@ -101,7 +101,7 @@
 }
 
 .sm .companyName {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-base);
 }
 
 .md .logoIcon {
@@ -109,7 +109,7 @@
 }
 
 .md .companyName {
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-lg);
 }
 
 .lg .logoIcon {
@@ -117,7 +117,7 @@
 }
 
 .lg .companyName {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-xl);
 }
 
 .dark .companyName,
@@ -140,7 +140,7 @@
   }
 
   .md .companyName {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-base);
   }
 }
 
