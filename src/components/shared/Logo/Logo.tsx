@@ -20,7 +20,7 @@ export const Logo: React.FC<LogoProps> = ({ size = 'md', variant = 'dark' }) => 
         <img src="/logo12.png" alt="Bizmation" className={styles.logoImage} />
       </div>
       <div className={styles.logoText}>
-        <div className={styles.companyName}>Bizmation</div>
+        <div className={styles.companyName}>Bizmation Infotech Pvt Ltd.</div>
         <div className={styles.tagline}>Automating Growth</div>
       </div>
     </div>
